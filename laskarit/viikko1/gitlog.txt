@@ -1,0 +1,123 @@
+commit 064e919b57e05c4da597437139dec9afe555f135
+Author: Anssi Lintulampi <anssi.lintulampi@helsinki.fi>
+Date:   Sun Mar 18 17:45:57 2018 +0200
+
+    harjoittelua
+
+ tiedostoja/file1  | 0
+ tiedostoja/file2  | 0
+ tiedostoja/file22 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit adb781476e998e32fa7144b44ab1e3b8fc9da959
+Author: Anssi Lintulampi <anssi.lintulampi@helsinki.fi>
+Date:   Sun Mar 18 17:42:40 2018 +0200
+
+    uusi hakemisto
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 568a643c8100df47eb45b115ca4ee248320d161b
+Author: Anssi Lintulampi <anssi.lintulampi@helsinki.fi>
+Date:   Sun Mar 18 17:36:23 2018 +0200
+
+    git -p harjoittelu
+
+ eka.txt    | 6 +++++-
+ kolmas.txt | 4 +++-
+ 2 files changed, 8 insertions(+), 2 deletions(-)
+
+commit e4adc096c01a0a5ed665c044a9f09b6372a7bf87
+Author: Anssi Lintulampi <anssi.lintulampi@helsinki.fi>
+Date:   Sun Mar 18 17:33:29 2018 +0200
+
+    nimenmuutos, rm tiedosto.txt
+
+ tiedosto.txt | 8 --------
+ 1 file changed, 8 deletions(-)
+
+commit 7e96339740f2cb65664c914cf259ee68c7194e42
+Author: Anssi Lintulampi <anssi.lintulampi@helsinki.fi>
+Date:   Sun Mar 18 17:32:25 2018 +0200
+
+    nimenmuutos
+
+ eka.txt | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+commit 6127ab38e64fee0dcc6cd594842afa186a4b7c7c
+Author: Anssi Lintulampi <anssi.lintulampi@helsinki.fi>
+Date:   Sun Mar 18 17:31:30 2018 +0200
+
+    poistettiin toinen.txt
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 965225e95b240109ed29b63700cdcb9afd311058
+Author: Anssi Lintulampi <anssi.lintulampi@helsinki.fi>
+Date:   Sun Mar 18 17:27:36 2018 +0200
+
+    poisto ja lisäys
+
+ tiedosto.txt | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+commit 6c05711c63748e9cdbbb0b5125aed8370d0ead90
+Author: Anssi Lintulampi <anssi.lintulampi@helsinki.fi>
+Date:   Sun Mar 18 17:25:19 2018 +0200
+
+    paljon tekstiä
+
+ tiedosto.txt | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+commit 38ad5685d82746b4240ea38b46575c9ff8c64675
+Author: Anssi Lintulampi <anssi.lintulampi@helsinki.fi>
+Date:   Tue Mar 13 13:39:17 2018 +0200
+
+    hakemisto lisätty
+
+ stuff/stuff.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 66fc3bcc7a5833bdbd02424b7068ad2f0d773356
+Author: Anssi Lintulampi <anssi.lintulampi@helsinki.fi>
+Date:   Tue Mar 13 13:37:07 2018 +0200
+
+    muutoksia tiedostoihin
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 45688af320d806804f8ab3c44ef679e6d69adad4
+Author: Anssi Lintulampi <anssi.lintulampi@helsinki.fi>
+Date:   Tue Mar 13 13:36:16 2018 +0200
+
+    kolmas lisätty
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 8b3b709d9abab6e613605f433f6cd27fca8cd0af
+Author: Anssi Lintulampi <anssi.lintulampi@helsinki.fi>
+Date:   Tue Mar 13 13:34:28 2018 +0200
+
+    toinen.txt lisätty
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 409878482456080ff20f76ece1ed3758933bfee9
+Author: Anssi Lintulampi <anssi.lintulampi@helsinki.fi>
+Date:   Tue Mar 13 13:32:05 2018 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
