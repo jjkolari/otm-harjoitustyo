@@ -52,4 +52,10 @@ public class MaksukorttiTest {
         boolean arvo = kortti.otaRahaa(100);
         assertEquals(false, arvo);
     }
+    
+    @Test
+    public void saldoPalauttaaOikeanArvon(){
+        int arvo = kortti.saldo();
+        assertEquals(10, arvo);
+    }
 }
