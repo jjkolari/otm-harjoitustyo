@@ -15,11 +15,11 @@ käyttäjillä.
 
 ## Toiminnallisuus
 
-*Käyttäjä voi rekisteröityä järjestelmään käyttäjätunnuksella
-**Käyttäjällä tulee olla käyttäjätunnus, nimi ja salasana
-**Käyttäjätunnuksen tulee olla vähintään 3 merkkiä
-*Kun tunnus on luotu, voi käyttäjä kirjautua sisään
-**Jos sovellukseen yrittää kirjautua tunnuksella, jota ei ole olemassa, ilmoittaa sovellus
+* Käyttäjä voi rekisteröityä järjestelmään käyttäjätunnuksella
+** Käyttäjällä tulee olla käyttäjätunnus, nimi ja salasana
+** Käyttäjätunnuksen tulee olla vähintään 3 merkkiä
+* Kun tunnus on luotu, voi käyttäjä kirjautua sisään
+** Jos sovellukseen yrittää kirjautua tunnuksella, jota ei ole olemassa, ilmoittaa sovellus
 tästä.
 
 ### Kirjautumisen jälkeen
