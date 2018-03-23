@@ -22,22 +22,22 @@ käyttäjillä.
 **Jos sovellukseen yrittää kirjautua tunnuksella, jota ei ole olemassa, ilmoittaa sovellus
 tästä.
 
-###Kirjautumisen jälkeen
+### Kirjautumisen jälkeen
 
-*Käyttäjä näkee suoritetut ja tulevat kurssinsa omissa listoissaan.
-*Käyttäjä voi lisätä uuden kurssisuorituksen tai uuden tulevan kurssin.
-**Kurssisuorituksella on nimi, arvosana sekä opintopistemäärä
-**Sekä menneet, että tulevat kurssit näkyvät ainoastaan käyttäjälle itselleen.
-*Tulevan kurssin voi poistaa listalta
-*Käyttäjä voi tarkastella statistiikkaa esimerkiksi arvosanoistaan ja opintopisteistään.
-*Järjestelmästä voi kirjautua ulos
+* Käyttäjä näkee suoritetut ja tulevat kurssinsa omissa listoissaan.
+* Käyttäjä voi lisätä uuden kurssisuorituksen tai uuden tulevan kurssin.
+** Kurssisuorituksella on nimi, arvosana sekä opintopistemäärä
+** Sekä menneet, että tulevat kurssit näkyvät ainoastaan käyttäjälle itselleen.
+* Tulevan kurssin voi poistaa listalta
+* Käyttäjä voi tarkastella statistiikkaa esimerkiksi arvosanoistaan ja opintopisteistään.
+* Järjestelmästä voi kirjautua ulos
 
-##Ideoita jatkokehityksestä
+## Ideoita jatkokehityksestä
 Toiminnallisuuksia, jotka toteutetaan ajan salliessa yllä kuvattujen perustoiminnallisuuksien
 lisäksi.
-*Kurssisuoritusten tietojen muokkaus
-*Tulevien kurssien järjestäminen ajankohdan mukaan
-*Käyttäjä voi lisätä itselleen muistiinpanoja esim. opintoihin liittyen.
-*Deadline-laskuri
-*Statistiikka kaavioesitysmuotoon
-*Pääkäyttäjä voi poistaa normaaleja käyttäjiä
+* Kurssisuoritusten tietojen muokkaus
+* Tulevien kurssien järjestäminen ajankohdan mukaan
+* Käyttäjä voi lisätä itselleen muistiinpanoja esim. opintoihin liittyen.
+* Deadline-laskuri
+* Statistiikka kaavioesitysmuotoon
+* Pääkäyttäjä voi poistaa normaaleja käyttäjiä
