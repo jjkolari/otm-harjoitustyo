@@ -16,18 +16,18 @@ käyttäjillä.
 ## Toiminnallisuus
 
 * Käyttäjä voi rekisteröityä järjestelmään käyttäjätunnuksella
-** Käyttäjällä tulee olla käyttäjätunnus, nimi ja salasana
-** Käyttäjätunnuksen tulee olla vähintään 3 merkkiä
+	* Käyttäjällä tulee olla käyttäjätunnus, nimi ja salasana
+	* Käyttäjätunnuksen tulee olla vähintään 3 merkkiä
 * Kun tunnus on luotu, voi käyttäjä kirjautua sisään
-** Jos sovellukseen yrittää kirjautua tunnuksella, jota ei ole olemassa, ilmoittaa sovellus
+	* Jos sovellukseen yrittää kirjautua tunnuksella, jota ei ole olemassa, ilmoittaa sovellus
 tästä.
 
 ### Kirjautumisen jälkeen
 
 * Käyttäjä näkee suoritetut ja tulevat kurssinsa omissa listoissaan.
 * Käyttäjä voi lisätä uuden kurssisuorituksen tai uuden tulevan kurssin.
-** Kurssisuorituksella on nimi, arvosana sekä opintopistemäärä
-** Sekä menneet, että tulevat kurssit näkyvät ainoastaan käyttäjälle itselleen.
+	* Kurssisuorituksella on nimi, arvosana sekä opintopistemäärä
+	* Sekä menneet, että tulevat kurssit näkyvät ainoastaan käyttäjälle itselleen.
 * Tulevan kurssin voi poistaa listalta
 * Käyttäjä voi tarkastella statistiikkaa esimerkiksi arvosanoistaan ja opintopisteistään.
 * Järjestelmästä voi kirjautua ulos
