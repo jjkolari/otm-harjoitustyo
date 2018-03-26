@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane 
+<GridPane fx:controller="opintoapp.ui.LoginSceneController"
     xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
 <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
 
@@ -23,8 +23,11 @@
 
 <HBox spacing="10" GridPane.columnIndex="1"
     GridPane.rowIndex="4" >
-    <Button text="sign in"/>
+    <Button text="sign in" onAction="#handleSubmitButtonAction"/>
 </HBox>
+
+<Text fx:id="actiontarget"
+       GridPane.columnIndex="1" GridPane.rowIndex="6"/>
 
 </GridPane>
 
