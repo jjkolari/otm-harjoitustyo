@@ -6,19 +6,49 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import opintoapp.dao.UserDao;
+import opintoapp.domain.StudyService;
 
-public class OpintoAppGui extends Application{
+public class OpintoAppMain extends Application{
+    
+    private StudyService studyService;
+    private Scene loginScene;
+    private Scene newUserScene;
+    private Stage stage;
+
+    @Override
+    public void init() throws Exception {
+        this.studyService = new StudyService(new UserDao());
+        
+        FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("/fxml/Login.fxml"));
+        Parent login = loginLoader.load();
+        LoginSceneController loginscenecontroller = loginLoader.getController();
+        loginscenecontroller.setService(this.studyService);
+        loginscenecontroller.setApplication(this);
+        this.loginScene = new Scene(login, 300, 275);
+        
+        FXMLLoader newUserLoader = new FXMLLoader(getClass().getResource("/fxml/NewUser.fxml"));
+        Parent newUser = newUserLoader.load();
+        NewUserSceneController newusercontroller = newUserLoader.getController();
+        newusercontroller.setService(studyService);
+        newusercontroller.setApplication(this);
+        this.newUserScene = new Scene(newUser, 300, 275);
+    }
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("/fxml/Login.fxml"));
-        Parent root = loginLoader.load();
-        
-        Scene scene = new Scene(root, 300, 275);
-        
-        stage.setTitle("hello fxml world");
-        stage.setScene(scene);
+        this.stage = stage;
+        stage.setTitle("OpintoApp");
+        setLoginScene();
         stage.show();
+    }
+    
+    public void setLoginScene(){
+        this.stage.setScene(loginScene);
+    }
+    
+    public void setNewUserScene(){
+        this.stage.setScene(newUserScene);
     }
     
     public static void main(String[] args) {

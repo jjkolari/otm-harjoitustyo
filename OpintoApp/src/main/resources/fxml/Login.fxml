@@ -26,6 +26,11 @@
     <Button text="sign in" onAction="#handleSubmitButtonAction"/>
 </HBox>
 
+<HBox spacing="10" GridPane.columnIndex="1"
+    GridPane.rowIndex="5" >
+    <Button text="create new user" onAction="#handleNewUser"/>
+</HBox>
+
 <Text fx:id="actiontarget"
        GridPane.columnIndex="1" GridPane.rowIndex="6"/>
 
