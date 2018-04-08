@@ -6,19 +6,21 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import opintoapp.dao.UserDao;
+import opintoapp.dao.Database;
 import opintoapp.domain.StudyService;
 
 public class OpintoAppMain extends Application{
     
     private StudyService studyService;
+    private Database database;
     private Scene loginScene;
     private Scene newUserScene;
     private Stage stage;
 
     @Override
     public void init() throws Exception {
-        this.studyService = new StudyService(new UserDao());
+        this.database = new Database("jdbc:sqlite:./db/OpintoApp.db");
+        this.studyService = new StudyService(this.database);
         
         FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("/fxml/Login.fxml"));
         Parent login = loginLoader.load();

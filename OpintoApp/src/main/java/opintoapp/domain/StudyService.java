@@ -1,6 +1,7 @@
 
 package opintoapp.domain;
 
+import opintoapp.dao.Database;
 import opintoapp.dao.UserDao;
 
 public class StudyService {
@@ -8,13 +9,22 @@ public class StudyService {
     
     private UserDao udao;
 
-    public StudyService(UserDao udao) {
-        this.udao = udao;
+    public StudyService(Database db) {
+        this.udao = new UserDao(db);
     }
     
     public void createUser(String name, String uname, String pwd){
         User u = new User(uname, name, pwd);
-        //udao.save(u); tässä sit tallennetaan
+        try {
+            udao.Create(u);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public void addCourse(User u, String name, int points, int grade){
+        Course c = new CompletedCourse(name, points, grade);
+        u.addCourse(c);
     }
     
     
