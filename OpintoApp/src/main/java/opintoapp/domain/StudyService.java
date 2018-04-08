@@ -8,6 +8,7 @@ public class StudyService {
     //sovelluslogiikkaluokka datan käsittelyyn
     
     private UserDao udao;
+    private User loggedIn;
 
     public StudyService(Database db) {
         this.udao = new UserDao(db);
@@ -19,6 +20,21 @@ public class StudyService {
             udao.Create(u);
         } catch (Exception e) {
             System.out.println(e.getMessage());
+        }
+    }
+    
+    public boolean logIn(String username, String password){
+        try {
+            User u = this.udao.findOne(username, password);
+            this.loggedIn = u;
+            if(u == null){
+                return false;
+            } else {
+                return true;
+            }
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+            return false;
         }
     }
     

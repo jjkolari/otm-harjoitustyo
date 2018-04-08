@@ -35,8 +35,13 @@ public class NewUserSceneController {
     
     @FXML 
     public void handleSubmitButtonAction(ActionEvent event) {
-        if(username.getText().length() > 3 && password.getText().length() > 3){
+        if(username.getText().length() >= 3 && password.getText().length() >= 3){
+            actiontarget.setText("User " + username.getText() + " created");
             service.createUser(name.getText(), username.getText(), password.getText());
+            this.username.setText("");
+            this.name.setText("");
+            this.password.setText("");
+            
         } else {
             actiontarget.setText("Username and password must contain at least 3 characters");
         }

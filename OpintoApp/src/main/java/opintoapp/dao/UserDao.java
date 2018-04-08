@@ -28,8 +28,25 @@ public class UserDao implements Dao{
     }
 
     @Override
-    public Object findOne(Object k) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public User findOne(String username, String password) throws SQLException {
+        Connection conn = db.getConnection();
+        PreparedStatement stmt = conn.prepareStatement("Select * From User Where "
+                + "username = ? AND password = ?");
+        stmt.setString(1, username);
+        stmt.setString(2, password);
+        
+        ResultSet rs = stmt.executeQuery();
+        boolean hasOne = rs.next();
+        if(!hasOne){
+            return null;
+        }
+        
+        String usrname = rs.getString("username");
+        String name = rs.getString("name");
+        String pswd = rs.getString("password");
+        User user = new User(usrname, name, pswd);
+        
+        return user;
     }
 
     @Override
