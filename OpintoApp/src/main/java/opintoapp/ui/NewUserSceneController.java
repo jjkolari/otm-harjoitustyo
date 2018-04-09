@@ -37,7 +37,7 @@ public class NewUserSceneController {
     public void handleSubmitButtonAction(ActionEvent event) {
         if(username.getText().length() >= 3 && password.getText().length() >= 3){
             actiontarget.setText("User " + username.getText() + " created");
-            service.createUser(name.getText(), username.getText(), password.getText());
+            service.createUser(username.getText(), name.getText(), password.getText());
             this.username.setText("");
             this.name.setText("");
             this.password.setText("");

@@ -14,12 +14,14 @@ public class StudyService {
         this.udao = new UserDao(db);
     }
     
-    public void createUser(String name, String uname, String pwd){
+    public boolean createUser(String uname, String name, String pwd){
         User u = new User(uname, name, pwd);
         try {
             udao.Create(u);
+            return true;
         } catch (Exception e) {
             System.out.println(e.getMessage());
+            return false;
         }
     }
     
