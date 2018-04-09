@@ -28,6 +28,7 @@ public class LoginSceneController {
         if(logInSuccess){
             username.setText("");
             password.setText("");
+            actiontarget.setText("");
             this.application.setWelcomeScene();
         } else {
             actiontarget.setText("Unknown user");

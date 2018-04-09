@@ -49,6 +49,7 @@ public class NewUserSceneController {
     
     @FXML
     public void handleGoBack(ActionEvent event){
+        actiontarget.setText("");
         this.application.setLoginScene();
     }
     

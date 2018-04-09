@@ -13,4 +13,8 @@
     <Text fx:id="actionTarget"/>
 </HBox>
 
+<HBox spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="1">
+    <Button text="log out" onAction="#handleLogOut"/>
+</HBox>
+
 </GridPane>

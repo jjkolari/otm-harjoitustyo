@@ -11,6 +11,8 @@ import opintoapp.domain.StudyService;
 
 public class OpintoAppMain extends Application{
     
+    private final double height = 600;
+    private final double width = 550;
     private StudyService studyService;
     private Database database;
     private Scene loginScene;
@@ -29,21 +31,21 @@ public class OpintoAppMain extends Application{
         LoginSceneController loginscenecontroller = loginLoader.getController();
         loginscenecontroller.setService(this.studyService);
         loginscenecontroller.setApplication(this);
-        this.loginScene = new Scene(login, 300, 275);
+        this.loginScene = new Scene(login, height, width);
         
         FXMLLoader newUserLoader = new FXMLLoader(getClass().getResource("/fxml/NewUser.fxml"));
         Parent newUser = newUserLoader.load();
         NewUserSceneController newusercontroller = newUserLoader.getController();
         newusercontroller.setService(studyService);
         newusercontroller.setApplication(this);
-        this.newUserScene = new Scene(newUser, 300, 275);
+        this.newUserScene = new Scene(newUser, height, width);
         
         FXMLLoader welcomeLoader = new FXMLLoader(getClass().getResource("/fxml/Welcome.fxml"));
         Parent welcome = welcomeLoader.load();
         welcomescenecontroller = welcomeLoader.getController();
         welcomescenecontroller.setService(studyService);
         welcomescenecontroller.setApplication(this);
-        this.welcomeScene = new Scene(welcome, 300, 275);
+        this.welcomeScene = new Scene(welcome, height, width);
     }
 
     @Override

@@ -24,4 +24,8 @@ public class WelcomeSceneController {
         this.actionTarget.setText("Welcome to OpintoApp " + username);
     }
     
+    public void handleLogOut(){
+        this.application.setLoginScene();
+    }
+    
 }
