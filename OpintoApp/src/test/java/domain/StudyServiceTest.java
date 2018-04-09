@@ -1,6 +1,8 @@
 
 package domain;
 
+import java.util.ArrayList;
+import java.util.List;
 import opintoapp.dao.Database;
 import opintoapp.domain.*;
 import org.junit.After;
@@ -55,6 +57,18 @@ public class StudyServiceTest {
     public void unknownUserCannotLogIn(){
         boolean success = this.service.logIn("unknown", "123abc");
         assertEquals(false, success);
+    }
+    
+    @Test
+    public void addCourseForUser(){
+        int grade = 5;
+        int points = 5;
+        String name = "course1";
+        this.service.addCourse(signedUser, name, points, grade);
+        Course c = new CompletedCourse(name, points, grade);
+        List<Course> l = new ArrayList<>();
+        l.add(c);
+        assertEquals(l.get(0).toString(), this.signedUser.getCourses().get(0).toString());
     }
     
 }

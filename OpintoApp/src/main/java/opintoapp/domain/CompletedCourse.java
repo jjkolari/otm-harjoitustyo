@@ -13,5 +13,11 @@ public class CompletedCourse extends Course{
     public int getGrade() {
         return grade;
     }
+
+    @Override
+    public String toString() {
+        return this.getName() + ", points:" + this.getPoints() + ", grade: " + this.getGrade();
+    }
+    
     
 }
