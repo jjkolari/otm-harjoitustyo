@@ -15,6 +15,8 @@ public class OpintoAppMain extends Application{
     private Database database;
     private Scene loginScene;
     private Scene newUserScene;
+    private Scene welcomeScene;
+    private WelcomeSceneController welcomescenecontroller;
     private Stage stage;
 
     @Override
@@ -35,6 +37,13 @@ public class OpintoAppMain extends Application{
         newusercontroller.setService(studyService);
         newusercontroller.setApplication(this);
         this.newUserScene = new Scene(newUser, 300, 275);
+        
+        FXMLLoader welcomeLoader = new FXMLLoader(getClass().getResource("/fxml/Welcome.fxml"));
+        Parent welcome = welcomeLoader.load();
+        welcomescenecontroller = welcomeLoader.getController();
+        welcomescenecontroller.setService(studyService);
+        welcomescenecontroller.setApplication(this);
+        this.welcomeScene = new Scene(welcome, 300, 275);
     }
 
     @Override
@@ -51,6 +60,11 @@ public class OpintoAppMain extends Application{
     
     public void setNewUserScene(){
         this.stage.setScene(newUserScene);
+    }
+    
+    public void setWelcomeScene(){
+        this.stage.setScene(welcomeScene);
+        this.welcomescenecontroller.setActionTarget();
     }
     
     public static void main(String[] args) {

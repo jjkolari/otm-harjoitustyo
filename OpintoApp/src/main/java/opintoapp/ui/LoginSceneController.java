@@ -26,9 +26,9 @@ public class LoginSceneController {
     @FXML protected void handleSubmitButtonAction(ActionEvent event) {
         boolean logInSuccess = this.service.logIn(username.getText(), password.getText());
         if(logInSuccess){
-            actiontarget.setText("Logged in succesfully");
             username.setText("");
             password.setText("");
+            this.application.setWelcomeScene();
         } else {
             actiontarget.setText("Unknown user");
         }
@@ -36,6 +36,9 @@ public class LoginSceneController {
     
     @FXML
     public void handleNewUser(ActionEvent event){
+        actiontarget.setText("");
+        username.setText("");
+        password.setText("");
         this.application.setNewUserScene();
     }
 }

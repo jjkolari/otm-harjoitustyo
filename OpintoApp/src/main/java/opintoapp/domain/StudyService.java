@@ -44,6 +44,9 @@ public class StudyService {
         Course c = new CompletedCourse(name, points, grade);
         u.addCourse(c);
     }
-    
+
+    public User getLoggedIn() {
+        return loggedIn;
+    }
     
 }
