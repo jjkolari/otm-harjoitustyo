@@ -7,4 +7,4 @@ Päivä | Aika | Mitä tehty
 26.3.|2,5| Tutustuminen javafx:n ja fxml perusteisiin, login-näkymän testiversio
 2.4.|3| Uuden käyttäjän luominen, sql-tietokannan alustaminen
 8.4.|1| Sisäänkirjautuminen toimii alustavasti
-9.4|2| Testejä sovelluslogiikalle, käyttäjälle oma näkymä sisäänkirjautuessa
+9.4|2,5| Testejä sovelluslogiikalle, käyttäjälle oma näkymä sisäänkirjautuessa
