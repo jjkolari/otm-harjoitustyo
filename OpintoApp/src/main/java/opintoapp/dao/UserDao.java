@@ -46,6 +46,8 @@ public class UserDao implements Dao{
         String pswd = rs.getString("password");
         User user = new User(usrname, name, pswd);
         
+        conn.close();
+        
         return user;
     }
 
