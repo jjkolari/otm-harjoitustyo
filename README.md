@@ -8,3 +8,4 @@ Kurssille Ohjelmistotekniikan menetelmät toteutettava desktop-sovellus
 ## Komentorivitoiminnot
 Ohjelman voi suorittaa komentoriviltä komennolla `mvn compile exec:java -Dexec.mainClass=opintoapp.ui.OpintoAppMain`</br>
 Testit suoritetaan komennolla `mvn test`
+Testikattavuusraportti generoidaan komennolla `mvn test jacoco:report`
