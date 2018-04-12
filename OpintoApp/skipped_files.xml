@@ -8,4 +8,5 @@
     <suppress files="opintoapp.ui.LoginSceneController.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="opintoapp.ui.NewUserSceneController.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="opintoapp.ui.WelcomeSceneController.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="opintoapp.ui.OpintoAppMain.java" checks="[a-zA-Z0-9]*"/>
 </suppressions>

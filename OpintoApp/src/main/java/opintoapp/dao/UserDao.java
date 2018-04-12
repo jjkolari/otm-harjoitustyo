@@ -1,4 +1,3 @@
-
 package opintoapp.dao;
 
 import org.mindrot.jbcrypt.BCrypt;
@@ -6,23 +5,22 @@ import java.sql.*;
 import java.util.List;
 import opintoapp.domain.User;
 
-public class UserDao implements Dao{
-    
+public class UserDao implements Dao {
+
     private Database db;
 
     public UserDao(Database db) {
         this.db = db;
     }
 
-
-    public void Create(User user) throws SQLException {
+    public void create(User user) throws SQLException {
         Connection connection = db.getConnection();
         PreparedStatement stmt = connection.prepareStatement("INSERT INTO User (username, name, password)"
                 + "VALUES(?, ?, ?)");
         stmt.setString(1, user.getUsername());
         stmt.setString(2, user.getName());
         stmt.setString(3, user.getPswd());
-        
+
         stmt.executeUpdate();
         stmt.close();
         connection.close();
@@ -34,25 +32,24 @@ public class UserDao implements Dao{
         PreparedStatement stmt = conn.prepareStatement("Select * From User Where "
                 + "username = ? ");
         stmt.setString(1, username);
-        
+
         ResultSet rs = stmt.executeQuery();
         boolean hasOne = rs.next();
-        if(!hasOne){
+        if (!hasOne) {
             return null;
         }
-        
+
         boolean pwMatches = BCrypt.checkpw(password, rs.getString("password"));
-        if(!pwMatches){
+        if (!pwMatches) {
             return null;
         }
-        
+
         String usrname = rs.getString("username");
         String name = rs.getString("name");
         String pswd = rs.getString("password");
         User user = new User(usrname, name, pswd);
-        
+
         conn.close();
-        
         return user;
     }
 
@@ -61,6 +58,5 @@ public class UserDao implements Dao{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    
     //tietokantayhteys käyttäjille tulee tänne
 }

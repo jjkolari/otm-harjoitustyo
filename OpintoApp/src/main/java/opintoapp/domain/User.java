@@ -1,11 +1,10 @@
-
 package opintoapp.domain;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class User {
-    
+
     private String username;
     private String name;
     private String pswd;
@@ -29,8 +28,8 @@ public class User {
     public String getPswd() {
         return pswd;
     }
-    
-    public void addCourse(Course c){
+
+    public void addCourse(Course c) {
         this.courses.add(c);
     }
 

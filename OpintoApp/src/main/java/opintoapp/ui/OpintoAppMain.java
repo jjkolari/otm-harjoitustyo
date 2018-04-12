@@ -1,4 +1,3 @@
-
 package opintoapp.ui;
 
 import javafx.application.Application;
@@ -9,8 +8,8 @@ import javafx.stage.Stage;
 import opintoapp.dao.Database;
 import opintoapp.domain.StudyService;
 
-public class OpintoAppMain extends Application{
-    
+public class OpintoAppMain extends Application {
+
     private final double height = 600;
     private final double width = 550;
     private StudyService studyService;
@@ -25,21 +24,21 @@ public class OpintoAppMain extends Application{
     public void init() throws Exception {
         this.database = new Database("jdbc:sqlite:./db/OpintoApp.db");
         this.studyService = new StudyService(this.database);
-        
+
         FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("/fxml/Login.fxml"));
         Parent login = loginLoader.load();
         LoginSceneController loginscenecontroller = loginLoader.getController();
         loginscenecontroller.setService(this.studyService);
         loginscenecontroller.setApplication(this);
         this.loginScene = new Scene(login, height, width);
-        
+
         FXMLLoader newUserLoader = new FXMLLoader(getClass().getResource("/fxml/NewUser.fxml"));
         Parent newUser = newUserLoader.load();
         NewUserSceneController newusercontroller = newUserLoader.getController();
         newusercontroller.setService(studyService);
         newusercontroller.setApplication(this);
         this.newUserScene = new Scene(newUser, height, width);
-        
+
         FXMLLoader welcomeLoader = new FXMLLoader(getClass().getResource("/fxml/Welcome.fxml"));
         Parent welcome = welcomeLoader.load();
         welcomescenecontroller = welcomeLoader.getController();
@@ -55,28 +54,24 @@ public class OpintoAppMain extends Application{
         setLoginScene();
         stage.show();
     }
-    
-    public void setLoginScene(){
+
+    public void setLoginScene() {
         this.stage.setScene(loginScene);
     }
-    
-    public void setNewUserScene(){
+
+    public void setNewUserScene() {
         this.stage.setScene(newUserScene);
     }
-    
-    public void setWelcomeScene(){
+
+    public void setWelcomeScene() {
         this.stage.setScene(welcomeScene);
         this.welcomescenecontroller.setActionTarget();
     }
-    
+
     public static void main(String[] args) {
-        
+
         launch(args);
-        
-        
+
     }
-    
-    
-    
-    
+
 }
