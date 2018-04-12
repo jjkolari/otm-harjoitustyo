@@ -19,7 +19,7 @@
 
 <Label text="Password"
     GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-<TextField fx:id="password" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+<PasswordField fx:id="password" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
 <HBox spacing="10" GridPane.columnIndex="1"
     GridPane.rowIndex="4" >

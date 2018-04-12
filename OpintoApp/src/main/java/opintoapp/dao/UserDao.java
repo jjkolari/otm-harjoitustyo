@@ -1,6 +1,7 @@
 
 package opintoapp.dao;
 
+import org.mindrot.jbcrypt.BCrypt;
 import java.sql.*;
 import java.util.List;
 import opintoapp.domain.User;
@@ -31,13 +32,17 @@ public class UserDao implements Dao{
     public User findOne(String username, String password) throws SQLException {
         Connection conn = db.getConnection();
         PreparedStatement stmt = conn.prepareStatement("Select * From User Where "
-                + "username = ? AND password = ?");
+                + "username = ? ");
         stmt.setString(1, username);
-        stmt.setString(2, password);
         
         ResultSet rs = stmt.executeQuery();
         boolean hasOne = rs.next();
         if(!hasOne){
+            return null;
+        }
+        
+        boolean pwMatches = BCrypt.checkpw(password, rs.getString("password"));
+        if(!pwMatches){
             return null;
         }
         
