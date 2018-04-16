@@ -42,6 +42,7 @@ public class WelcomeSceneController {
     
     public void setCourseList(User u){
         this.courseList = FXCollections.observableArrayList(u.getCourses());
+        tableView.setItems(courseList);
     }
     
     public void handleAddCourse(){
