@@ -8,3 +8,6 @@ Päivä | Aika | Mitä tehty
 2.4.|3| Uuden käyttäjän luominen, sql-tietokannan alustaminen
 8.4.|1| Sisäänkirjautuminen toimii alustavasti
 9.4|2,5| Testejä sovelluslogiikalle, käyttäjälle oma näkymä sisäänkirjautuessa
+12.4|2,5| Salasanan hash-koodaus, checkstylen käyttöönotto
+16.4|3| Kurssien lisääminen toimii ui:ssa alustavasti
+Yhteensä|18|   
