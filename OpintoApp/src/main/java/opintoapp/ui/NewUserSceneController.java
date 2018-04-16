@@ -1,7 +1,6 @@
 
 package opintoapp.ui;
 
-import org.mindrot.jbcrypt.BCrypt;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
@@ -39,8 +38,8 @@ public class NewUserSceneController {
     public void handleSubmitButtonAction(ActionEvent event) {
         if(username.getText().length() >= 3 && password.getText().length() >= 3){
             actiontarget.setText("User " + username.getText() + " created");
-            String hashed = BCrypt.hashpw(password.getText(), BCrypt.gensalt());
-            service.createUser(username.getText(), name.getText(), hashed);
+            
+            service.createUser(username.getText(), name.getText(), password.getText());
             this.username.setText("");
             this.name.setText("");
             this.password.setText("");

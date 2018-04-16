@@ -14,7 +14,7 @@ public abstract class Course {
     }
 
     public String getName() {
-        return name.get();
+        return this.name.getValue();
     }
 
     public int getPoints() {

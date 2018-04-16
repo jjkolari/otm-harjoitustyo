@@ -1,17 +1,20 @@
 package opintoapp.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 import opintoapp.dao.Database;
-import opintoapp.dao.UserDao;
+import opintoapp.dao.*;
 
 public class StudyService {
     //sovelluslogiikkaluokka datan käsittelyyn
 
     private UserDao udao;
+    private CourseDao cdao;
     private User loggedIn;
 
     public StudyService(Database db) {
         this.udao = new UserDao(db);
+        this.cdao = new CourseDao(db, this);
     }
 
     public boolean createUser(String uname, String name, String pwd) {
@@ -40,14 +43,26 @@ public class StudyService {
         }
     }
 
-    public List<Course> addCourse(String name, int points, int grade) {
-        Course c = new CompletedCourse(name, points, grade);
+    public void addCourse(String name, int points, int grade) {
+        CompletedCourse c = new CompletedCourse(name, points, grade);
         this.loggedIn.addCourse(c);
-        return this.loggedIn.getCourses();
+//        try {
+//            cdao.create(c);
+//        } catch (Exception e) {
+//            System.out.println(e.getMessage());
+//        }
     }
 
     public User getLoggedIn() {
         return loggedIn;
+    }
+    
+    public List<Course> getUsersCourses(){
+        try {
+            return cdao.getAll();
+        } catch(Exception e) {
+            return new ArrayList<>();
+        }
     }
 
 }

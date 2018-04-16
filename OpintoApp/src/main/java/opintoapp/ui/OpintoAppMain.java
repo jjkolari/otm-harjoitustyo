@@ -66,7 +66,7 @@ public class OpintoAppMain extends Application {
     public void setWelcomeScene() {
         this.stage.setScene(welcomeScene);
         this.welcomescenecontroller.setActionTarget();
-        this.welcomescenecontroller.setCourseList(this.studyService.getLoggedIn());
+        this.welcomescenecontroller.setCourseList();
     }
 
     public static void main(String[] args) {

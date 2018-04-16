@@ -19,7 +19,8 @@ public class UserDao implements Dao {
                 + "VALUES(?, ?, ?)");
         stmt.setString(1, user.getUsername());
         stmt.setString(2, user.getName());
-        stmt.setString(3, user.getPswd());
+        String hashed = BCrypt.hashpw(user.getPswd(), BCrypt.gensalt());
+        stmt.setString(3, hashed);
 
         stmt.executeUpdate();
         stmt.close();
@@ -48,7 +49,9 @@ public class UserDao implements Dao {
         String name = rs.getString("name");
         String pswd = rs.getString("password");
         User user = new User(usrname, name, pswd);
-
+        
+        rs.close();
+        stmt.close();
         conn.close();
         return user;
     }
