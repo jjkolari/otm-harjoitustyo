@@ -64,7 +64,8 @@ public class StudyServiceTest {
         int grade = 5;
         int points = 5;
         String name = "course1";
-        this.service.addCourse(signedUser, name, points, grade);
+        this.service.logIn(this.signedUser.getUsername(), this.signedUser.getPswd());
+        this.service.addCourse(name, points, grade);
         Course c = new CompletedCourse(name, points, grade);
         List<Course> l = new ArrayList<>();
         l.add(c);

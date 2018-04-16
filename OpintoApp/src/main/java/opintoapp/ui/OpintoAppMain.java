@@ -10,8 +10,8 @@ import opintoapp.domain.StudyService;
 
 public class OpintoAppMain extends Application {
 
-    private final double height = 600;
-    private final double width = 550;
+    private final double height = 800;
+    private final double width = 750;
     private StudyService studyService;
     private Database database;
     private Scene loginScene;
@@ -66,6 +66,7 @@ public class OpintoAppMain extends Application {
     public void setWelcomeScene() {
         this.stage.setScene(welcomeScene);
         this.welcomescenecontroller.setActionTarget();
+        this.welcomescenecontroller.setCourseList(this.studyService.getLoggedIn());
     }
 
     public static void main(String[] args) {

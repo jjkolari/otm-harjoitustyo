@@ -1,5 +1,6 @@
 package opintoapp.domain;
 
+import java.util.List;
 import opintoapp.dao.Database;
 import opintoapp.dao.UserDao;
 
@@ -39,9 +40,10 @@ public class StudyService {
         }
     }
 
-    public void addCourse(User u, String name, int points, int grade) {
+    public List<Course> addCourse(String name, int points, int grade) {
         Course c = new CompletedCourse(name, points, grade);
-        u.addCourse(c);
+        this.loggedIn.addCourse(c);
+        return this.loggedIn.getCourses();
     }
 
     public User getLoggedIn() {
