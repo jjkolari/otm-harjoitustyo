@@ -10,4 +10,5 @@ Päivä | Aika | Mitä tehty
 9.4|2,5| Testejä sovelluslogiikalle, käyttäjälle oma näkymä sisäänkirjautuessa
 12.4|2,5| Salasanan hash-koodaus, checkstylen käyttöönotto
 16.4|3| Kurssien lisääminen toimii ui:ssa alustavasti
-Yhteensä|18|   
+16.4|1| Tietokannan alustamista kursseille, testien korjailua
+Yhteensä|19|   
