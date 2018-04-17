@@ -28,17 +28,17 @@ public class CourseDao implements Dao {
         stmt.setString(0, this.service.getLoggedIn().getUsername());
         ResultSet rs = stmt.executeQuery();
         List<Course> courses = new ArrayList<>();
-        while(rs.next()){
+        while (rs.next()) {
             courses.add(new CompletedCourse(rs.getString("name"), rs.getInt("credits"), rs.getInt("grade")));
         }
-        
+
         rs.close();
         stmt.close();
         conn.close();
         return courses;
     }
-    
-    public void create(CompletedCourse c) throws SQLException{
+
+    public void create(CompletedCourse c) throws SQLException {
         Connection conn = this.db.getConnection();
         PreparedStatement stmt = conn.prepareStatement("INSERT INTO Course (name, credits, grade, user_username)"
                 + "VALUES (?, ?, ?, ?)");
@@ -46,7 +46,7 @@ public class CourseDao implements Dao {
         stmt.setInt(1, c.getPoints());
         stmt.setInt(2, c.getGrade());
         stmt.setString(3, this.service.getLoggedIn().getUsername());
-        
+
         System.out.println(c.toString());
         stmt.executeUpdate();
         stmt.close();

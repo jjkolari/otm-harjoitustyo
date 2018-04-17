@@ -56,11 +56,11 @@ public class StudyService {
     public User getLoggedIn() {
         return loggedIn;
     }
-    
-    public List<Course> getUsersCourses(){
+
+    public List<Course> getUsersCourses() {
         try {
             return cdao.getAll();
-        } catch(Exception e) {
+        } catch (Exception e) {
             return new ArrayList<>();
         }
     }
