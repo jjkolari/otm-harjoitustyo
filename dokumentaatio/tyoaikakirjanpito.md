@@ -11,4 +11,5 @@ Päivä | Aika | Mitä tehty
 12.4|2,5| Salasanan hash-koodaus, checkstylen käyttöönotto
 16.4|3| Kurssien lisääminen toimii ui:ssa alustavasti
 16.4|1| Tietokannan alustamista kursseille, testien korjailua
-Yhteensä|19|   
+17.4|1| Luokka/pakkauskaavio
+Yhteensä|20|   
