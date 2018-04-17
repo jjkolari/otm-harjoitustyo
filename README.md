@@ -5,6 +5,8 @@ Kurssille Ohjelmistotekniikan menetelmät toteutettava desktop-sovellus
 
 [Työaikakirjanpito](https://github.com/anL1/otm-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)<br/>
 
+[Arkkitehtuuri](https://github.com/anL1/otm-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
+
 ## Komentorivitoiminnot
 Ohjelman voi suorittaa komentoriviltä komennolla</br> `mvn compile exec:java -Dexec.mainClass=opintoapp.ui.OpintoAppMain`</br>
 Testit suoritetaan komennolla `mvn test`</br>
