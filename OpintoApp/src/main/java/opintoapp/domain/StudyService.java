@@ -14,7 +14,7 @@ public class StudyService {
 
     public StudyService(Database db) {
         this.udao = new UserDao(db);
-        this.cdao = new CourseDao(db, this);
+        this.cdao = new CourseDao(db);
     }
 
     public boolean createUser(String uname, String name, String pwd) {
@@ -45,22 +45,22 @@ public class StudyService {
 
     public void addCourse(String name, int points, int grade) {
         CompletedCourse c = new CompletedCourse(name, points, grade);
-        this.loggedIn.addCourse(c);
-//        try {
-//            cdao.create(c);
-//        } catch (Exception e) {
-//            System.out.println(e.getMessage());
-//        }
+        try {
+            cdao.create(c, this.loggedIn);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public User getLoggedIn() {
         return loggedIn;
     }
 
-    public List<Course> getUsersCourses() {
+    public List<CompletedCourse> getUsersCourses() {
         try {
-            return cdao.getAll();
+            return cdao.getAll(this.loggedIn);
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             return new ArrayList<>();
         }
     }

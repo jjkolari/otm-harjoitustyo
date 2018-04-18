@@ -8,6 +8,6 @@ public interface Dao<Value, Key> {
     
 //    void Create(Value v) throws SQLException;
     Value findOne(String s, String s2) throws SQLException;
-    List<Value> getAll() throws SQLException;
+//    List<Value> getAll() throws SQLException;
     
 }

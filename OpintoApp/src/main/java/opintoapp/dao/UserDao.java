@@ -56,7 +56,7 @@ public class UserDao implements Dao {
         return user;
     }
 
-    @Override
+//    @Override
     public List getAll() throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

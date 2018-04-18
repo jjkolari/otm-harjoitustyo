@@ -20,6 +20,12 @@ public abstract class Course {
     public int getPoints() {
         return points;
     }
+
+    @Override
+    public String toString() {
+        return this.name + ", points:" + this.points;
+    }
+    
     
     
 }

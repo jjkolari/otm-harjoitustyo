@@ -15,7 +15,7 @@ public class CompletedCourse extends Course {
 
     @Override
     public String toString() {
-        return this.getName() + ", points:" + this.getPoints() + ", grade: " + this.getGrade();
+        return super.toString() +  ", grade: " + this.getGrade();
     }
 
 }

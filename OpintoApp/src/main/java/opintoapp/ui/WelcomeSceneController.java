@@ -42,7 +42,6 @@ public class WelcomeSceneController {
     
     public void setCourseList(){
         this.courseList = FXCollections.observableArrayList(this.service.getUsersCourses());
-//        this.courseList = FXCollections.observableArrayList(u.getCourses());
         tableView.setItems(courseList);
     }
     
@@ -50,11 +49,9 @@ public class WelcomeSceneController {
         String name = courseName.getText();
         int points = Integer.parseInt(creditBox.getValue().toString());
         int grade = Integer.parseInt(gradeBox.getValue().toString());
-        //2 seuraava riviä lisää listalle
-        this.courseList = tableView.getItems();
-        this.courseList.add(new CompletedCourse(name, points, grade));
-        //alla daon kautta lisäys tietokantaan, ei toimi????
-//        this.service.addCourse(name, points, grade);
+        //alla daon kautta lisäys tietokantaan, NYT TOIMII
+        this.service.addCourse(name, points, grade);
+        this.setCourseList();
         this.courseName.setText("");
     }
     
