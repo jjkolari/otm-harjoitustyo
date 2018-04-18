@@ -59,17 +59,17 @@ public class StudyServiceTest {
         assertEquals(false, success);
     }
     
-//    @Test
-//    public void addCourseForUser(){
-//        int grade = 5;
-//        int points = 5;
-//        String name = "course1";
-//        this.service.logIn(this.signedUser.getUsername(), this.signedUser.getPswd());
-//        this.service.addCourse(name, points, grade);
-//        Course c = new CompletedCourse(name, points, grade);
-//        List<Course> l = new ArrayList<>();
-//        l.add(c);
-//        assertEquals(l.get(0).toString(), this.signedUser.getCourses().get(0).toString());
-//    }
+    @Test
+    public void addCourseForUser(){
+        int grade = 5;
+        int points = 5;
+        String name = "course1";
+        this.service.logIn(this.signedUser.getUsername(), this.signedUser.getPswd());
+        this.service.addCourse(name, points, grade);
+        CompletedCourse c = new CompletedCourse(name, points, grade);
+        List<CompletedCourse> l = new ArrayList<>();
+        l.add(c);
+        assertEquals(l.get(0).toString(), this.service.getUsersCourses().get(0).toString());
+    }
     
 }
