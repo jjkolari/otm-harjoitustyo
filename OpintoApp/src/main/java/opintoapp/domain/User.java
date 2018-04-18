@@ -27,4 +27,8 @@ public class User {
         return pswd;
     }
 
+    @Override
+    public String toString() {
+        return this.username + ", " + this.name;
+    }
 }

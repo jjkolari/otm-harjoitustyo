@@ -38,7 +38,14 @@ public class StudyServiceTest {
     @After
     public void tearDown() {
     }
-
+    
+    @Test
+    public void getLoggedInTest(){
+        this.service.logIn(this.signedUser.getUsername(), this.signedUser.getPswd());
+        User u = this.service.getLoggedIn();
+        assertEquals(this.signedUser.toString(), u.toString());
+    }
+    
     @Test
     public void createUserTest() {
         boolean success = this.service.createUser(signedUser.getUsername(), signedUser.getName(), signedUser.getPswd());
