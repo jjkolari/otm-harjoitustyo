@@ -1,10 +1,9 @@
-
 package opintoapp.domain;
 
 import javafx.beans.property.SimpleStringProperty;
 
 public abstract class Course {
-    
+
     private SimpleStringProperty name = new SimpleStringProperty("");
     private int points;
 
@@ -25,7 +24,5 @@ public abstract class Course {
     public String toString() {
         return this.name + ", points:" + this.points;
     }
-    
-    
-    
+
 }

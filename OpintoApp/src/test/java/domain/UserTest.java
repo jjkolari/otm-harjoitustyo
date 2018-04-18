@@ -34,9 +34,4 @@ public class UserTest {
     public void tearDown() {
     }
 
-//    @Test
-//    public void addCourseWorks(){
-//        u.addCourse(new CompletedCourse("course1", 5, 5));
-//        assertEquals(1, u.getCourses().size());
-//    }
 }

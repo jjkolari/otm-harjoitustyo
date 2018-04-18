@@ -27,12 +27,4 @@ public class User {
         return pswd;
     }
 
-//    public void addCourse(Course c) {
-//        this.courses.add(c);
-//    }
-//
-//    public List<Course> getCourses() {
-//        return courses;
-//    }
-
 }
