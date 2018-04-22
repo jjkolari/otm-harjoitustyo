@@ -12,4 +12,6 @@ Päivä | Aika | Mitä tehty
 16.4|3| Kurssien lisääminen toimii ui:ssa alustavasti
 16.4|1| Tietokannan alustamista kursseille, testien korjailua
 17.4|1| Luokka/pakkauskaavio
-Yhteensä|20|   
+18.4.|2| Kurssit tietokantaan, testien korjausta
+22.4.|2,5| jarin generointi, tietokanta alustetaan ekalla käynnistyksellä, lisää toiminnallisuutta
+Yhteensä|24,5|   
