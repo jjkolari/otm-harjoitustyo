@@ -35,8 +35,10 @@
                    GridPane.columnIndex="3" GridPane.rowIndex="4">
             <items>
                 <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="0"/>
                     <String fx:value="3"/>
                     <String fx:value="5"/>
+                    <String fx:value="10"/>
                 </FXCollections>
             </items>
         </ChoiceBox>
@@ -47,7 +49,11 @@
                    GridPane.columnIndex="3" GridPane.rowIndex="5">
             <items>
                 <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="0"/>
                     <String fx:value="1"/>
+                    <String fx:value="2"/>
+                    <String fx:value="3"/>
+                    <String fx:value="4"/>
                     <String fx:value="5"/>
                 </FXCollections>
             </items>
@@ -83,8 +89,11 @@
         </items>
         
     </TableView>
+    
+    <Text fx:id="average" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+    <Text fx:id="totalCredits" GridPane.columnIndex="0" GridPane.rowIndex="8" />
 
-    <HBox spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="7">
+    <HBox spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="10">
         <Button text="log out" onAction="#handleLogOut"/>
     </HBox>
 

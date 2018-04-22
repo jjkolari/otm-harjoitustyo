@@ -2,6 +2,7 @@ package opintoapp.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.OptionalDouble;
 import opintoapp.dao.Database;
 import opintoapp.dao.*;
 
@@ -62,6 +63,39 @@ public class StudyService {
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return new ArrayList<>();
+        }
+    }
+
+    public double averageGrade() {
+        try {
+            List<CompletedCourse> courses = cdao.getAll(this.loggedIn);
+            ArrayList<Integer> grades = new ArrayList<>();
+            courses.stream()
+                    .forEach(c -> grades.add(c.getGrade()));
+
+            OptionalDouble avg = grades.stream()
+                    .mapToInt(a -> a)
+                    .average();
+            return avg.getAsDouble();
+        } catch (Exception e) {
+            return 0;
+        }
+
+    }
+
+    public int creditsTotal() {
+        try {
+            List<CompletedCourse> courses = cdao.getAll(this.loggedIn);
+            ArrayList<Integer> credits = new ArrayList<>();
+            courses.stream()
+                    .forEach(c -> credits.add(c.getPoints()));
+            int total = 0;
+            for (int c : credits) {
+                total += c;
+            }
+            return total;
+        } catch (Exception e) {
+            return 0;
         }
     }
 

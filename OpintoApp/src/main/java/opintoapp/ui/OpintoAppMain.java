@@ -67,6 +67,7 @@ public class OpintoAppMain extends Application {
         this.stage.setScene(welcomeScene);
         this.welcomescenecontroller.setActionTarget();
         this.welcomescenecontroller.setCourseList();
+        this.welcomescenecontroller.setAverageAndTotal();
     }
 
     public static void main(String[] args) {

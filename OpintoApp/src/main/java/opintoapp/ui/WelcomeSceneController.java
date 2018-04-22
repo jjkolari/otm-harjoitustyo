@@ -22,6 +22,8 @@ public class WelcomeSceneController {
     @FXML private ChoiceBox creditBox;
     @FXML private ChoiceBox gradeBox;
     @FXML private TableView<Course> tableView;
+    @FXML private Text average;
+    @FXML private Text totalCredits;
     private StudyService service;
     private OpintoAppMain application;
     private ObservableList<Course> courseList;
@@ -40,6 +42,22 @@ public class WelcomeSceneController {
         this.actionTarget.setFont(new Font("Arial", 20));
     }
     
+    public void setAverageAndTotal() {
+        double avg = this.service.averageGrade();
+        if(avg == 0) {
+            this.average.setText("");
+        } else {
+            this.average.setText("Average of grades: " + avg);
+        }
+        
+        int total = this.service.creditsTotal();
+        if(total == 0) {
+            this.totalCredits.setText("");
+        } else {
+            this.totalCredits.setText("Credits earned: " + total);
+        }
+    }
+    
     public void setCourseList(){
         this.courseList = FXCollections.observableArrayList(this.service.getUsersCourses());
         tableView.setItems(courseList);
@@ -52,7 +70,10 @@ public class WelcomeSceneController {
         //alla daon kautta lisäys tietokantaan, NYT TOIMII
         this.service.addCourse(name, points, grade);
         this.setCourseList();
+        this.setAverageAndTotal();
         this.courseName.setText("");
+        this.creditBox.getSelectionModel().select(0);
+        this.gradeBox.getSelectionModel().select(0);
     }
     
     public void handleLogOut(){
