@@ -18,7 +18,7 @@ public class StudyServiceTest {
     private User signedUser;
 
     public StudyServiceTest() throws Exception {
-        this.db = new Database("jdbc:sqlite:./db/TestOpintoApp.db");
+        this.db = new Database("jdbc:sqlite:./TestOpintoApp.db");
         this.service = new StudyService(db);
     }
 

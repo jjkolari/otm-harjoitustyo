@@ -22,7 +22,7 @@ public class OpintoAppMain extends Application {
 
     @Override
     public void init() throws Exception {
-        this.database = new Database("jdbc:sqlite:./db/OpintoApp.db");
+        this.database = new Database("jdbc:sqlite:./OpintoApp.db");
         this.studyService = new StudyService(this.database);
 
         FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("/fxml/Login.fxml"));
