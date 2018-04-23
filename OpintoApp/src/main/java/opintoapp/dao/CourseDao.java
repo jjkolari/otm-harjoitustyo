@@ -49,5 +49,17 @@ public class CourseDao implements Dao {
         stmt.close();
         conn.close();
     }
+    
+    public void delete(String courseName, String username) throws SQLException {
+        Connection conn = this.db.getConnection();
+        PreparedStatement stmt = conn.prepareStatement("DELETE FROM Course "
+                + "WHERE name = ? AND user_username = ?");
+        stmt.setString(1, courseName);
+        stmt.setString(2, username);
+        
+        stmt.executeUpdate();
+        stmt.close();
+        conn.close();
+    }
 
 }

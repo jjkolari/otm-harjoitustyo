@@ -19,7 +19,7 @@
         <Text fx:id="actionTarget"/>
     </HBox>
 
-    <Text text="You can add courses here" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+    <Text text="Add courses here" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
 
     <GridPane GridPane.columnIndex="2" GridPane.rowIndex="3" hgap="10" vgap="10">
         <padding>
@@ -90,10 +90,18 @@
         
     </TableView>
     
-    <Text fx:id="average" GridPane.columnIndex="0" GridPane.rowIndex="7" />
-    <Text fx:id="totalCredits" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+    <Text fx:id="average" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+    <Text fx:id="totalCredits" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+    
+    <GridPane GridPane.columnIndex="2" GridPane.rowIndex="4" hgap="10" vgap="10">
+    <Text text="Delete courses" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+    <Label text="Course name" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    <TextField fx:id="delCourseName" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+    <Button text="delete" onAction="#handleDelete" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+    <Text fx:id="deleteMessage" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+    </GridPane>
 
-    <HBox spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="10">
+    <HBox spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="7">
         <Button text="log out" onAction="#handleLogOut"/>
     </HBox>
 

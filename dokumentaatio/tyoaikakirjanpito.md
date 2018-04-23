@@ -16,4 +16,5 @@ Päivä | Aika | Mitä tehty
 22.4.|2,5| jarin generointi, tietokanta alustetaan ekalla käynnistyksellä, lisää toiminnallisuutta
 22.4|1,5| Epäonnistuvan testin debuggausta  :thumbsup:
 23.4|1| Lisää testejä
-Yhteensä|27|   
+23.4|2| Kurssin poistaminen toimii
+Yhteensä|29|   

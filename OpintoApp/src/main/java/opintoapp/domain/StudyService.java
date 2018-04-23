@@ -67,9 +67,20 @@ public class StudyService {
         }
     }
 
+    public void deleteCourse(String courseName) {
+        try {
+            this.cdao.delete(courseName, this.loggedIn.getUsername());
+        } catch (Exception e) {
+            System.out.println("deletefail: " + e.getMessage());
+        }
+    }
+
     public double averageGrade() {
         try {
             List<CompletedCourse> courses = cdao.getAll(this.loggedIn);
+            if (courses.size() == 0) {
+                return 0;
+            }
             ArrayList<Integer> grades = courses.stream()
                     .map(c -> c.getGrade())
                     .collect(Collectors.toCollection(ArrayList::new));
