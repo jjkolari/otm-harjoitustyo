@@ -3,6 +3,7 @@ package opintoapp.domain;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.OptionalDouble;
+import java.util.stream.Collectors;
 import opintoapp.dao.Database;
 import opintoapp.dao.*;
 
@@ -39,7 +40,7 @@ public class StudyService {
                 return true;
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println("login fail: " + e.getMessage());
             return false;
         }
     }
@@ -69,15 +70,17 @@ public class StudyService {
     public double averageGrade() {
         try {
             List<CompletedCourse> courses = cdao.getAll(this.loggedIn);
-            ArrayList<Integer> grades = new ArrayList<>();
-            courses.stream()
-                    .forEach(c -> grades.add(c.getGrade()));
+            ArrayList<Integer> grades = courses.stream()
+                    .map(c -> c.getGrade())
+                    .collect(Collectors.toCollection(ArrayList::new));
 
             OptionalDouble avg = grades.stream()
                     .mapToInt(a -> a)
                     .average();
-            return avg.getAsDouble();
+            double a = avg.getAsDouble();
+            return a;
         } catch (Exception e) {
+            System.out.println("averagefail: " + e.getMessage());
             return 0;
         }
 
