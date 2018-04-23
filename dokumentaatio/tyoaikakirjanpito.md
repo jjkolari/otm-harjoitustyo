@@ -14,4 +14,6 @@ Päivä | Aika | Mitä tehty
 17.4|1| Luokka/pakkauskaavio
 18.4.|2| Kurssit tietokantaan, testien korjausta
 22.4.|2,5| jarin generointi, tietokanta alustetaan ekalla käynnistyksellä, lisää toiminnallisuutta
-Yhteensä|24,5|   
+22.4|1,5| Epäonnistuvan testin debuggausta  :thumbsup:
+23.4|1| Lisää testejä
+Yhteensä|27|   
