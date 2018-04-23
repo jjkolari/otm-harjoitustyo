@@ -18,7 +18,7 @@ public class Database {
                     + " name varchar(200),"
                     + " password varchar(200)"
                     + ");");
-            
+
             stmt.execute("CREATE TABLE IF NOT EXISTS"
                     + " Course (id integer PRIMARY KEY,"
                     + " name varchar(200),"
@@ -27,8 +27,8 @@ public class Database {
                     + " user_username varchar(200),"
                     + " FOREIGN KEY (user_username) REFERENCES User(username)"
                     + ");");
-            
-        } catch(Exception e) {
+
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }

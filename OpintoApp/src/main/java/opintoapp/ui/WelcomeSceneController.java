@@ -54,6 +54,8 @@ public class WelcomeSceneController {
         String username = this.service.getLoggedIn().getUsername();
         this.actionTarget.setText("Welcome to OpintoApp " + username);
         this.actionTarget.setFont(new Font("Arial", 20));
+        this.average.setFont(new Font("Arial", 16));
+        this.totalCredits.setFont(new Font("Arial", 16));
     }
 
     public void setAverageAndTotal() {
