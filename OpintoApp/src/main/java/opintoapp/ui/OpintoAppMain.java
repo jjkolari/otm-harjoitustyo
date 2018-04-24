@@ -45,6 +45,7 @@ public class OpintoAppMain extends Application {
         welcomescenecontroller.setService(studyService);
         welcomescenecontroller.setApplication(this);
         this.welcomeScene = new Scene(welcome, height, width);
+        this.welcomeScene.getStylesheets().add(getClass().getResource("/welcome.css").toExternalForm());
     }
 
     @Override
