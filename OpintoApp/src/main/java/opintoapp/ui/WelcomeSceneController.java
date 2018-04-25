@@ -36,8 +36,6 @@ public class WelcomeSceneController {
     private Text totalCredits;
     @FXML
     private TextField delCourseName;
-    @FXML
-    private Text deleteMessage;
     private StudyService service;
     private OpintoAppMain application;
     private ObservableList<Course> courseList;
@@ -53,9 +51,6 @@ public class WelcomeSceneController {
     public void setActionTarget() {
         String username = this.service.getLoggedIn().getUsername();
         this.actionTarget.setText("Welcome to OpintoApp " + username);
-        this.actionTarget.setFont(new Font("Arial", 20));
-        this.average.setFont(new Font("Arial", 16));
-        this.totalCredits.setFont(new Font("Arial", 16));
     }
 
     public void setAverageAndTotal() {
@@ -90,8 +85,8 @@ public class WelcomeSceneController {
         this.setCourseList();
         this.setAverageAndTotal();
         this.courseName.setText("");
-        this.creditBox.getSelectionModel().select(0);
-        this.gradeBox.getSelectionModel().select(0);
+        this.creditBox.setValue(null);
+        this.gradeBox.setValue(null);
     }
 
     public void handleDelete() {
@@ -107,7 +102,6 @@ public class WelcomeSceneController {
                 this.service.deleteCourse(courseName);
                 this.setCourseList();
                 this.setAverageAndTotal();
-                this.deleteMessage.setText(courseName + " deleted");
                 this.delCourseName.setText("");
             } else {
                 this.delCourseName.setText("");

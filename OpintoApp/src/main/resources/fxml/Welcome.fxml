@@ -30,23 +30,24 @@
                     <GridPane hgap="10" styleClass="content-section" vgap="10" GridPane.columnIndex="1" GridPane.rowIndex="1">
                
                         <Text id="content-header" text="Add courses" GridPane.rowIndex="1" />
-                        <Label text="Course name" GridPane.rowIndex="2" />
-                        <TextField fx:id="courseName" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="courseName" promptText="Course name..." GridPane.rowIndex="2" />
             
                         <Label text="Credits" GridPane.rowIndex="3" />
-                        <ChoiceBox fx:id="creditBox" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <ChoiceBox fx:id="creditBox" GridPane.rowIndex="4">
                             <items>
                                 <FXCollections fx:factory="observableArrayList">
-                                    <String fx:value="0" />
+                                    <String fx:value="1" />
+                                    <String fx:value="2" />
                                     <String fx:value="3" />
+                                    <String fx:value="4" />
                                     <String fx:value="5" />
                                     <String fx:value="10" />
                                 </FXCollections>
                             </items>
                         </ChoiceBox>
             
-                        <Label text="Grade" GridPane.rowIndex="4" />
-                        <ChoiceBox fx:id="gradeBox" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                        <Label text="Grade" GridPane.rowIndex="5" />
+                        <ChoiceBox fx:id="gradeBox" GridPane.rowIndex="6">
                             <items>
                                 <FXCollections fx:factory="observableArrayList">
                                     <String fx:value="0" />
@@ -59,7 +60,7 @@
                             </items>
                         </ChoiceBox>
             
-                        <Button onAction="#handleAddCourse" text="Add Course" GridPane.rowIndex="5" />
+                        <Button onAction="#handleAddCourse" text="Add Course" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                         <columnConstraints>
                             <ColumnConstraints />
                             <ColumnConstraints />
@@ -80,15 +81,14 @@
                     <Text id="content" fx:id="average" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                     <Text id="content" fx:id="totalCredits" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                 
-                    <GridPane hgap="10" styleClass="content-section" vgap="10" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                    <GridPane hgap="10" prefHeight="101.0" prefWidth="294.0" styleClass="content-section" vgap="10" GridPane.columnIndex="1" GridPane.rowIndex="2">
                         <Text id="content-header" text="Delete courses" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                        <Label text="Course name" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                        <TextField fx:id="delCourseName" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Button onAction="#handleDelete" text="delete" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-                        <Text fx:id="deleteMessage" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                        <TextField fx:id="delCourseName" promptText="Course name..." GridPane.rowIndex="2" />
+                        <Button onAction="#handleDelete" prefHeight="26.0" prefWidth="88.0" text="Delete" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                         <columnConstraints>
                             <ColumnConstraints />
                             <ColumnConstraints />
+                     <ColumnConstraints />
                         </columnConstraints>
                         <rowConstraints>
                             <RowConstraints />
