@@ -24,6 +24,7 @@ public class Database {
                     + " name varchar(200),"
                     + " credits integer,"
                     + " grade integer,"
+                    + " semester varchar(20),"
                     + " user_username varchar(200),"
                     + " FOREIGN KEY (user_username) REFERENCES User(username)"
                     + ");");

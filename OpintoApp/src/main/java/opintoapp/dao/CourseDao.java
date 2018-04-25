@@ -27,7 +27,24 @@ public class CourseDao implements Dao {
         ResultSet rs = stmt.executeQuery();
         List<CompletedCourse> courses = new ArrayList<>();
         while (rs.next()) {
-            courses.add(new CompletedCourse(rs.getString("name"), rs.getInt("credits"), rs.getInt("grade")));
+            courses.add(new CompletedCourse(rs.getString("name"), rs.getInt("credits"), rs.getString("semester"), rs.getInt("grade")));
+        }
+        
+        rs.close();
+        stmt.close();
+        conn.close();
+        return courses;
+    }
+    
+    public List<CompletedCourse> getSemester(String semester) throws SQLException{
+        Connection conn = db.getConnection();
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM Course "
+                + "WHERE semester = ?");
+        stmt.setString(1, semester);
+        ResultSet rs = stmt.executeQuery();
+        List<CompletedCourse> courses = new ArrayList<>();
+        while (rs.next()) {
+            courses.add(new CompletedCourse(rs.getString("name"), rs.getInt("credits"), rs.getString("semester"), rs.getInt("grade")));
         }
         
         rs.close();
@@ -38,12 +55,13 @@ public class CourseDao implements Dao {
 
     public void create(CompletedCourse c, User u) throws SQLException {
         Connection conn = this.db.getConnection();
-        PreparedStatement stmt = conn.prepareStatement("INSERT INTO Course (name, credits, grade, user_username)"
-                + "VALUES (?, ?, ?, ?)");
+        PreparedStatement stmt = conn.prepareStatement("INSERT INTO Course (name, credits, grade, semester, user_username)"
+                + "VALUES (?, ?, ?, ?, ?)");
         stmt.setString(1, c.getName());
         stmt.setInt(2, c.getPoints());
         stmt.setInt(3, c.getGrade());
-        stmt.setString(4, u.getUsername());
+        stmt.setString(4, c.getSemester());
+        stmt.setString(5, u.getUsername());
 
         stmt.executeUpdate();
         stmt.close();

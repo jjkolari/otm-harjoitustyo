@@ -6,10 +6,12 @@ public abstract class Course {
 
     private SimpleStringProperty name = new SimpleStringProperty("");
     private int points;
+    private String semester;
 
-    public Course(String name, int points) {
+    public Course(String name, int points, String semester) {
         this.name.set(name);
         this.points = points;
+        this.semester = semester;
     }
 
     public String getName() {
@@ -19,6 +21,11 @@ public abstract class Course {
     public int getPoints() {
         return points;
     }
+
+    public String getSemester() {
+        return semester;
+    }
+    
 
     @Override
     public String toString() {

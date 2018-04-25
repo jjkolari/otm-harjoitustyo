@@ -45,8 +45,8 @@ public class StudyService {
         }
     }
 
-    public void addCourse(String name, int points, int grade) {
-        CompletedCourse c = new CompletedCourse(name, points, grade);
+    public void addCourse(String name, int points, String semester, int grade) {
+        CompletedCourse c = new CompletedCourse(name, points, semester, grade);
         try {
             cdao.create(c, this.loggedIn);
         } catch (Exception e) {
@@ -66,6 +66,19 @@ public class StudyService {
             return new ArrayList<>();
         }
     }
+    
+    public List<CompletedCourse> filterCoursesBySemester(String semester) {
+        try {
+            if(semester.equals("All")) {
+                return this.getUsersCourses();
+            } else {
+                return cdao.getSemester(semester);
+            }
+        } catch (Exception e) {
+            System.out.println("Filter-failure: " + e.getMessage());
+            return new ArrayList<>();
+        }
+    }
 
     public void deleteCourse(String courseName) {
         try {
@@ -75,9 +88,9 @@ public class StudyService {
         }
     }
 
-    public double averageGrade() {
+    public double averageGrade(String semester) {
         try {
-            List<CompletedCourse> courses = cdao.getAll(this.loggedIn);
+            List<CompletedCourse> courses = this.filterCoursesBySemester(semester);
             if (courses.size() == 0) {
                 return 0;
             }
@@ -97,9 +110,9 @@ public class StudyService {
 
     }
 
-    public int creditsTotal() {
+    public int creditsTotal(String semester) {
         try {
-            List<CompletedCourse> courses = cdao.getAll(this.loggedIn);
+            List<CompletedCourse> courses = this.filterCoursesBySemester(semester);
             ArrayList<Integer> credits = new ArrayList<>();
             courses.stream()
                     .forEach(c -> credits.add(c.getPoints()));

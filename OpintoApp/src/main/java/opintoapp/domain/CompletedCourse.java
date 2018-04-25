@@ -4,8 +4,8 @@ public class CompletedCourse extends Course {
 
     private int grade;
 
-    public CompletedCourse(String name, int points, int grade) {
-        super(name, points);
+    public CompletedCourse(String name, int points, String semester, int grade) {
+        super(name, points, semester);
         this.grade = grade;
     }
 
