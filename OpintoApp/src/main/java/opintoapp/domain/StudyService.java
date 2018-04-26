@@ -66,10 +66,10 @@ public class StudyService {
             return new ArrayList<>();
         }
     }
-    
+
     public List<CompletedCourse> filterCoursesBySemester(String semester) {
         try {
-            if(semester.equals("All")) {
+            if (semester.equals("All")) {
                 return this.getUsersCourses();
             } else {
                 return cdao.getSemester(semester);

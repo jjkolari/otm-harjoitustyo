@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import opintoapp.domain.*;
 
-public class CourseDao{
+public class CourseDao {
 
     private Database db;
 
@@ -13,7 +13,6 @@ public class CourseDao{
         this.db = db;
     }
 
-    
     public List<CompletedCourse> getAll(User u) throws SQLException {
         Connection conn = db.getConnection();
         PreparedStatement stmt = conn.prepareStatement("SELECT * FROM Course "
@@ -24,14 +23,14 @@ public class CourseDao{
         while (rs.next()) {
             courses.add(new CompletedCourse(rs.getString("name"), rs.getInt("credits"), rs.getString("semester"), rs.getInt("grade")));
         }
-        
+
         rs.close();
         stmt.close();
         conn.close();
         return courses;
     }
-    
-    public List<CompletedCourse> getSemester(String semester) throws SQLException{
+
+    public List<CompletedCourse> getSemester(String semester) throws SQLException {
         Connection conn = db.getConnection();
         PreparedStatement stmt = conn.prepareStatement("SELECT * FROM Course "
                 + "WHERE semester = ?");
@@ -41,7 +40,7 @@ public class CourseDao{
         while (rs.next()) {
             courses.add(new CompletedCourse(rs.getString("name"), rs.getInt("credits"), rs.getString("semester"), rs.getInt("grade")));
         }
-        
+
         rs.close();
         stmt.close();
         conn.close();
@@ -62,14 +61,14 @@ public class CourseDao{
         stmt.close();
         conn.close();
     }
-    
+
     public void delete(String courseName, String username) throws SQLException {
         Connection conn = this.db.getConnection();
         PreparedStatement stmt = conn.prepareStatement("DELETE FROM Course "
                 + "WHERE name = ? AND user_username = ?");
         stmt.setString(1, courseName);
         stmt.setString(2, username);
-        
+
         stmt.executeUpdate();
         stmt.close();
         conn.close();
