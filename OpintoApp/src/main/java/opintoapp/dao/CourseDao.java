@@ -5,17 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 import opintoapp.domain.*;
 
-public class CourseDao implements Dao {
+public class CourseDao{
 
     private Database db;
 
     public CourseDao(Database db) {
         this.db = db;
-    }
-
-    @Override
-    public Object findOne(String s, String s2) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     

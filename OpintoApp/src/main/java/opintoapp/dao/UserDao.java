@@ -5,7 +5,7 @@ import java.sql.*;
 import java.util.List;
 import opintoapp.domain.User;
 
-public class UserDao implements Dao {
+public class UserDao {
 
     private Database db;
 
@@ -27,7 +27,6 @@ public class UserDao implements Dao {
         connection.close();
     }
 
-    @Override
     public User findOne(String username, String password) throws SQLException {
         Connection conn = db.getConnection();
         PreparedStatement stmt = conn.prepareStatement("Select * From User Where "
@@ -56,10 +55,4 @@ public class UserDao implements Dao {
         return user;
     }
 
-//    @Override
-    public List getAll() throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    //tietokantayhteys käyttäjille tulee tänne
 }

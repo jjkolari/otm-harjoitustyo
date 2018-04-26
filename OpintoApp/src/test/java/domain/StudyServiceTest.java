@@ -102,4 +102,15 @@ public class StudyServiceTest {
         assertEquals(5.0, this.service.averageGrade("All"), 0.1);
     }
 
+    @Test
+    public void deleteCourse() {
+        this.service.deleteCourse(course.getName());
+        assertEquals(0, this.service.getUsersCourses().size());
+    }
+
+    @Test
+    public void filterBySemester() {
+        List<CompletedCourse> l = this.service.filterCoursesBySemester("2017-2018");
+        assertEquals(this.course.toString(), l.get(0).toString());
+    }
 }
