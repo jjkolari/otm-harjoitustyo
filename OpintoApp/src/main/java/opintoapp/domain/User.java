@@ -3,6 +3,10 @@ package opintoapp.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Sovelluksen käyttäjää edustava luokka.
+ *
+ */
 public class User {
 
     private String username;

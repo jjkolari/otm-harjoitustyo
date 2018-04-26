@@ -7,8 +7,12 @@ import java.util.stream.Collectors;
 import opintoapp.dao.Database;
 import opintoapp.dao.*;
 
+/**
+ * Sovelluslogiikkaluokka joka tarjoaa metodit sovelluksen datan käsittelyyn,
+ * metodeja kutsutaan lähinnä käyttöliittymästä.
+ *
+ */
 public class StudyService {
-    //sovelluslogiikkaluokka datan käsittelyyn
 
     private UserDao udao;
     private CourseDao cdao;
@@ -19,6 +23,15 @@ public class StudyService {
         this.cdao = new CourseDao(db);
     }
 
+    /**
+     * Metodi luo uuden käyttäjän, joka voi kirjautua sovellukseen hyödyntäen 
+     * UserDao-luokkaa.
+     *
+     * @param uname Käyttäjänimi
+     * @param name Käyttäjän nimi
+     * @param pwd Salasana
+     * @return true jos käyttäjän luominen onnistui, false jos tapahtui virhe.
+     */
     public boolean createUser(String uname, String name, String pwd) {
         User u = new User(uname, name, pwd);
         try {
@@ -30,6 +43,13 @@ public class StudyService {
         }
     }
 
+    /**
+     * Metodi kirjaa rekisteröityneen käyttäjän sisään sovellukseen hyödyntäen
+     * UserDao-luokkaa.
+     * @param username Käyttäjänimi
+     * @param password Salasana
+     * @return true jos sisäänkirjautuminen onnistui, muutoin false.
+     */
     public boolean logIn(String username, String password) {
         try {
             User u = this.udao.findOne(username, password);
@@ -45,6 +65,14 @@ public class StudyService {
         }
     }
 
+    /**
+     * Metodi lisää käyttäjän henk.koht kurssilistaan kurssin, kurssi talletetaan
+     * tietokantaan käyttäen CourseDao-luokkaa.
+     * @param name Kurssin nimi
+     * @param points Opintopisteet
+     * @param semester Lukukausi
+     * @param grade Arvosana
+     */
     public void addCourse(String name, int points, String semester, int grade) {
         CompletedCourse c = new CompletedCourse(name, points, semester, grade);
         try {
@@ -53,7 +81,11 @@ public class StudyService {
             System.out.println(e.getMessage());
         }
     }
-
+    
+    /**
+     * Metodi palauttaa sisäänkirjautuneen käyttäjän.
+     * @return käyttäjä
+     */
     public User getLoggedIn() {
         return loggedIn;
     }

@@ -1,5 +1,9 @@
 package opintoapp.domain;
 
+/**
+ * Suoritettua kurssia edustava luokka, joka laajentaa Course-luokkaa.
+ *
+ */
 public class CompletedCourse extends Course {
 
     private int grade;
@@ -15,7 +19,7 @@ public class CompletedCourse extends Course {
 
     @Override
     public String toString() {
-        return super.toString() +  ", grade: " + this.getGrade();
+        return super.toString() + ", grade: " + this.getGrade();
     }
 
 }

@@ -3,10 +3,21 @@ package opintoapp.dao;
 import java.nio.file.*;
 import java.sql.*;
 
+/**
+ * Tietokantaa edustava luokka.
+ *
+ */
 public class Database {
 
     private String databaseAdress;
 
+    /**
+     * Konstruktori, joka luo tietokannan ja tietokantataulut ensimmäisen
+     * käynnistyksen yhteydessä.
+     *
+     * @param databaseAdress Tietokannan polku.
+     * @throws ClassNotFoundException
+     */
     public Database(String databaseAdress) throws ClassNotFoundException {
         this.databaseAdress = databaseAdress;
         try {

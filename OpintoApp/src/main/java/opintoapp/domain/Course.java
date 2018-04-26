@@ -2,6 +2,10 @@ package opintoapp.domain;
 
 import javafx.beans.property.SimpleStringProperty;
 
+/**
+ * Sovelluksen käyttäjän kurssia edustava abstrakti luokka.
+ *
+ */
 public abstract class Course {
 
     private SimpleStringProperty name = new SimpleStringProperty("");
@@ -25,7 +29,6 @@ public abstract class Course {
     public String getSemester() {
         return semester;
     }
-    
 
     @Override
     public String toString() {
