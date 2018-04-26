@@ -7,9 +7,33 @@ Kurssille Ohjelmistotekniikan menetelmät toteutettava desktop-sovellus
 
 [Arkkitehtuuri](https://github.com/anL1/otm-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
-## Komentorivitoiminnot
-Ohjelman voi suorittaa komentoriviltä komennolla</br> `mvn compile exec:java -Dexec.mainClass=opintoapp.ui.OpintoAppMain`</br>
-Testit suoritetaan komennolla `mvn test`</br>
-Testikattavuusraportti generoidaan komennolla `mvn test jacoco:report`</br>
-Checkstyle ajetaan komennolla `mvn jxr:jxr checkstyle:checkstyle`</br>
+## Releaset
+[Viikko 5](https://github.com/anL1/otm-harjoitustyo/releases)
 
+## Komentorivitoiminnot
+Ohjelman voi suorittaa komentoriviltä komennolla</br>
+
+`mvn compile exec:java -Dexec.mainClass=opintoapp.ui.OpintoAppMain`</br>
+
+### Testaus
+Testit suoritetaan komennolla 
+
+`mvn test`</br>
+
+Testikattavuusraportti generoidaan komennolla 
+
+`mvn test jacoco:report`</br>
+
+### Checkstyle
+Checkstyle ajetaan komennolla 
+
+`mvn jxr:jxr checkstyle:checkstyle`</br>
+
+Virheilmoitukset näkyvät tiedostossa _target/site/checkstyle.html_
+
+### Suoritettava .jar-tiedosto
+Jarin generointi suoritetaan komennolla
+
+`mvn package`
+
+Komento generoi suoritettavan .jar-tiedoston hakemistoon _target_
