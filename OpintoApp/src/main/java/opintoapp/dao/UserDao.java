@@ -41,6 +41,9 @@ public class UserDao {
 
         boolean pwMatches = BCrypt.checkpw(password, rs.getString("password"));
         if (!pwMatches) {
+            rs.close();
+            stmt.close();
+            conn.close();
             return null;
         }
 
@@ -48,7 +51,7 @@ public class UserDao {
         String name = rs.getString("name");
         String pswd = rs.getString("password");
         User user = new User(usrname, name, pswd);
-        
+
         rs.close();
         stmt.close();
         conn.close();

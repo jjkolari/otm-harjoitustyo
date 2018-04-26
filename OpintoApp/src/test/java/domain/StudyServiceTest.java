@@ -78,6 +78,12 @@ public class StudyServiceTest {
         boolean success = this.service.logIn("user", "123");
         assertEquals(true, success);
     }
+    
+    @Test
+    public void wrongPasswordTest() {
+        boolean success = this.service.logIn(this.signedUser.getUsername(), "wrongpassword");
+        assertEquals(false, success);
+    }
 
     @Test
     public void unknownUserCannotLogIn() {
