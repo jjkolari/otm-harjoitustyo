@@ -49,10 +49,10 @@ public class StudyServiceTest {
     @Before
     public void setUp() {
         this.signedUser = new User("legituser", "veryofficialusr", "strongpswd123456");
-        this.course = new CompletedCourse("course1", 5, 5);
+        this.course = new CompletedCourse("course1", 5, "2017-2018", 5);
         this.service.createUser(this.signedUser.getUsername(), this.signedUser.getName(), this.signedUser.getPswd());
         this.service.logIn(this.signedUser.getUsername(), this.signedUser.getPswd());
-        this.service.addCourse(this.course.getName(), this.course.getPoints(), this.course.getGrade());
+        this.service.addCourse(this.course.getName(), this.course.getPoints(), this.course.getSemester(), this.course.getGrade());
     }
 
     @After
@@ -94,12 +94,12 @@ public class StudyServiceTest {
 
     @Test
     public void totalCreditsTest() {
-        assertEquals(this.service.getUsersCourses().size() * 5, this.service.creditsTotal());
+        assertEquals(this.service.getUsersCourses().size() * 5, this.service.creditsTotal("All"));
     }
 
     @Test
     public void averageTest() {
-        assertEquals(5.0, this.service.averageGrade(), 0.1);
+        assertEquals(5.0, this.service.averageGrade("All"), 0.1);
     }
 
 }
