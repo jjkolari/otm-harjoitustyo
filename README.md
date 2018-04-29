@@ -7,6 +7,8 @@ Kurssille Ohjelmistotekniikan menetelmät toteutettava desktop-sovellus
 
 [Arkkitehtuuri](https://github.com/anL1/otm-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
+[Käyttöohje](https://github.com/anL1/otm-harjoitustyo/blob/master/dokumentaatio/Kayttoohje.md)
+
 ## Releaset
 [Viikko 5](https://github.com/anL1/otm-harjoitustyo/releases)
 
