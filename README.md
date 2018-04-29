@@ -10,6 +10,8 @@ Kurssille Ohjelmistotekniikan menetelmät toteutettava desktop-sovellus
 ## Releaset
 [Viikko 5](https://github.com/anL1/otm-harjoitustyo/releases)
 
+[Viikko 6](https://github.com/anL1/otm-harjoitustyo/releases/tag/v2.0_viikko6)
+
 ## Komentorivitoiminnot
 Ohjelman voi suorittaa komentoriviltä komennolla</br>
 
@@ -37,3 +39,10 @@ Jarin generointi suoritetaan komennolla
 `mvn package`
 
 Komento generoi suoritettavan .jar-tiedoston hakemistoon _target_
+
+### Javadoc
+Javadoc generoidaan komennolla
+
+`mvn javadoc:javadoc`
+
+Javadocia voi tarkastella tiedostosta _target/site/apidocs/index.html_
