@@ -1,5 +1,6 @@
 # OpintoApp
-Kurssille Ohjelmistotekniikan menetelmät toteutettava desktop-sovellus
+Kurssille Ohjelmistotekniikan menetelmät toteutettava desktop-sovellus. Sovellus on tarkoitettu opiskelijoille kurssisuoritusten seuraamiseen. Sovelluksen avulla voi mm. seurata omia kurssisuorituksiaan lukuvuosittain ja tarkastella omia keskiarvojaan sekä opintopistemäärää vuositasolla.
+
 ## Dokumentaatio
 [Vaativuusmäärittely](https://github.com/anL1/otm-harjoitustyo/blob/master/dokumentaatio/vaativuusmaarittely.md)<br/>
 
