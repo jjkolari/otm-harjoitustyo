@@ -7,6 +7,16 @@ Pakkaustasolla ohjelma noudattaa kerrosarkkitehtuuria.
 
 Riippuvuudet on merkitty katkoviivoilla. Pakkaus _opintoapp.ui_ on riippuvainen pakkauksesta _opintoapp.domain_ sillä käyttöliittymä käyttää sovelluslogiikkaluokkaa _StudyService_. _domain_ pakkaus puolestaan on riippuvainen pitkäaikaistalletuksesta vastaavasta pakkauksesta _opintoapp.dao_.
 
+## Käyttöliittymä
+Käyttöliittymästä vastaavat luokat sijaitsevat pakkauksessa [opintoapp.ui](https://github.com/anL1/otm-harjoitustyo/tree/master/OpintoApp/src/main/java/opintoapp/ui). Käyttöliittymä on toteutettu JavaFX:llä FXML-formaattia käyttäen. FXML-tiedostot sijaitsevat kansiossa [resources/fxml](https://github.com/anL1/otm-harjoitustyo/tree/master/OpintoApp/src/main/resources/fxml). Sovelluksen alustamisesta ja käynnistämisestä vastaa pääluokka [OpintoAppMain](https://github.com/anL1/otm-harjoitustyo/blob/master/OpintoApp/src/main/java/opintoapp/ui/OpintoAppMain.java).
+
+Käyttöliittymä muodostuu kolmesta näkymästä: 
+* Kirjautumisnäkymä
+* Uuden käyttäjän luominen -näkymä
+* Käyttäjän henkilökohtainen näkymä (kurssilistaus)
+
+Jokaiselle näkymälle on oma FXML-tiedostonsa, sekä tiedostoon liitetty kontrolleriluokka. Jokainen näkymä alustetaan omaksi scene-oliokseen _OpintoAppMain_-luokassa. Näkyvillä eli asetettuna sovelluksen stageen on yksi näkymä kerrallaan.
+
 ## Sovelluslogiikka
 Sovelluslogiikan perustan muodostavat luokat [User](https://github.com/anL1/otm-harjoitustyo/blob/master/OpintoApp/src/main/java/opintoapp/domain/User.java), [Course](https://github.com/anL1/otm-harjoitustyo/blob/master/OpintoApp/src/main/java/opintoapp/domain/Course.java) ja [CompletedCourse](https://github.com/anL1/otm-harjoitustyo/blob/master/OpintoApp/src/main/java/opintoapp/domain/CompletedCourse.java), jotka kuvaavat käyttäjiä sekä kursseja. _Course_ on abstrakti luokka ja kuvaa kurssia, jolla on nimi sekä opintopistemäärä. _CompletedCourse_ laajentaa _Course_-luokkaa liittämällä siihen arvosanan. 
 
@@ -17,6 +27,9 @@ Toiminnallisuudesta vastaa luokka [StudyService](https://github.com/anL1/otm-har
 Luokkien suhteita kuvaava luokka/pakkauskaavio:
 
 <img src="https://raw.githubusercontent.com/anL1/otm-harjoitustyo/master/dokumentaatio/images/pakkausluokkakaavio.png" >
+
+## Tietojen talletus
+Tietojen talletuksesta vastaavat luokat sijaitsevat pakkauksessa [opintoapp.dao](https://github.com/anL1/otm-harjoitustyo/tree/master/OpintoApp/src/main/java/opintoapp/dao). Tiedot talletetaan sqliten avulla ensimmäisen käynnistyksen yhteydessä luotavaan tietokantaan. Käyttäjien tiedot tallennetaan luokan [UserDao](https://github.com/anL1/otm-harjoitustyo/blob/master/OpintoApp/src/main/java/opintoapp/dao/UserDao.java) avulla ja käyttäjiin liittyvien kurssien tiedot luokan [CourseDao](https://github.com/anL1/otm-harjoitustyo/blob/master/OpintoApp/src/main/java/opintoapp/dao/CourseDao.java) avulla.
 
 ## Toiminnallisuus
 
