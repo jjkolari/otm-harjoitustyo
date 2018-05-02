@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 import opintoapp.domain.*;
 
+/**
+ * Dao-luokka kurssien tietokantatalletukseen.
+ * 
+ */
 public class CourseDao {
 
     private Database db;
@@ -13,6 +17,12 @@ public class CourseDao {
         this.db = db;
     }
 
+    /**
+     * Metodi hakee tietokannasta parametrina annetun käyttäjän kaikki kurssit.
+     * @param u käyttäjä
+     * @return Kurssiolioita sisältävä lista
+     * @throws SQLException 
+     */
     public List<CompletedCourse> getAll(User u) throws SQLException {
         Connection conn = db.getConnection();
         PreparedStatement stmt = conn.prepareStatement("SELECT * FROM Course "
@@ -30,11 +40,19 @@ public class CourseDao {
         return courses;
     }
 
-    public List<CompletedCourse> getSemester(String semester) throws SQLException {
+    /**
+     * Metodi hakee tietokannasta käyttäjän kurssit lukukaudella rajattuna.
+     * @param semester lukukausi
+     * @param u käyttäjä
+     * @return Lista kurssiolioita
+     * @throws SQLException 
+     */
+    public List<CompletedCourse> getSemester(String semester, User u) throws SQLException {
         Connection conn = db.getConnection();
         PreparedStatement stmt = conn.prepareStatement("SELECT * FROM Course "
-                + "WHERE semester = ?");
+                + "WHERE semester = ? AND user_username = ?");
         stmt.setString(1, semester);
+        stmt.setString(2, u.getUsername());
         ResultSet rs = stmt.executeQuery();
         List<CompletedCourse> courses = new ArrayList<>();
         while (rs.next()) {
@@ -47,6 +65,13 @@ public class CourseDao {
         return courses;
     }
 
+    /**
+     * Tallentaa parametrina annetun kurssin tietokantaan, käyttäjän käyttäjänimi viiteavaimena.
+     * 
+     * @param c Kurssi
+     * @param u Käyttäjä
+     * @throws SQLException 
+     */
     public void create(CompletedCourse c, User u) throws SQLException {
         Connection conn = this.db.getConnection();
         PreparedStatement stmt = conn.prepareStatement("INSERT INTO Course (name, credits, grade, semester, user_username)"
@@ -62,6 +87,13 @@ public class CourseDao {
         conn.close();
     }
 
+    /**
+     * Poistaa kurssin tietokannasta.
+     * 
+     * @param courseName Kurssin nimi
+     * @param username Käyttäjänimi johon kurssin viiteavain viittaa
+     * @throws SQLException 
+     */
     public void delete(String courseName, String username) throws SQLException {
         Connection conn = this.db.getConnection();
         PreparedStatement stmt = conn.prepareStatement("DELETE FROM Course "

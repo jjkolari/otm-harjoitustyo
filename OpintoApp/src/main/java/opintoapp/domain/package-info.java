@@ -1,0 +1,5 @@
+/**
+ * Sovelluslogiikkapakkaus
+ */
+package opintoapp.domain;
+

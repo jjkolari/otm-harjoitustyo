@@ -5,6 +5,10 @@ import java.sql.*;
 import java.util.List;
 import opintoapp.domain.User;
 
+/**
+ * Dao-luokka käyttäjien tietokantatalletukseen.
+ * 
+ */
 public class UserDao {
 
     private Database db;
@@ -13,6 +17,12 @@ public class UserDao {
         this.db = db;
     }
 
+    /**
+     * Tallentaa parametrina saadun käyttäjän tietokantaan.
+     * 
+     * @param user Käyttäjä
+     * @throws SQLException 
+     */
     public void create(User user) throws SQLException {
         Connection connection = db.getConnection();
         PreparedStatement stmt = connection.prepareStatement("INSERT INTO User (username, name, password)"
@@ -27,6 +37,15 @@ public class UserDao {
         connection.close();
     }
 
+    /**
+     * Metodi etsii tietokannasta käyttäjän joka vastaa parametrina saatua käyttäjänimeä ja
+     * salasanaa, salasanavertailu BCryptiä käyttäen suoritetaan tässä metodissa.
+     * 
+     * @param username Käyttäjänimi
+     * @param password Salasana cleantext-muodossa.
+     * @return null mikäli salasana ei oikein, muuten palauttaa User-olion.
+     * @throws SQLException 
+     */
     public User findOne(String username, String password) throws SQLException {
         Connection conn = db.getConnection();
         PreparedStatement stmt = conn.prepareStatement("Select * From User Where "

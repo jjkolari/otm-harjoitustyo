@@ -1,0 +1,5 @@
+/**
+ * Käyttöliittymäpakkaus
+ */
+package opintoapp.ui;
+

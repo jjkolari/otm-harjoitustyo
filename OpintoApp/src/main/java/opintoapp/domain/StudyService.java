@@ -90,6 +90,12 @@ public class StudyService {
         return loggedIn;
     }
 
+    /**
+     * Metodi hakee tietokannasta sisäänkirjautuneen käyttäjän kaikki kurssit käyttäen 
+     * CourseDao-luokkaa.
+     * 
+     * @return lista käyttäjän kursseista, tyhjä lista mikäli kursseja ei ole tietokannassa
+     */
     public List<CompletedCourse> getUsersCourses() {
         try {
             return cdao.getAll(this.loggedIn);
@@ -99,12 +105,19 @@ public class StudyService {
         }
     }
 
+    /**
+     * Hakee tietokannasta kaikki käyttäjän kurssit parametrina annetulta lukuvuodelta
+     * käyttäen CourseDao-luokkaa.
+     * 
+     * @param semester lukuvuosi
+     * @return lista kursseista ko. vuodelta
+     */
     public List<CompletedCourse> filterCoursesBySemester(String semester) {
         try {
             if (semester.equals("All")) {
                 return this.getUsersCourses();
             } else {
-                return cdao.getSemester(semester);
+                return cdao.getSemester(semester, this.loggedIn);
             }
         } catch (Exception e) {
             System.out.println("Filter-failure: " + e.getMessage());
@@ -112,6 +125,11 @@ public class StudyService {
         }
     }
 
+    /**
+     * Metodi poistaa kurssin tietokannasta jolloin se poistuu käyttäjän profiilista.
+     * 
+     * @param courseName kurssin nimi
+     */
     public void deleteCourse(String courseName) {
         try {
             this.cdao.delete(courseName, this.loggedIn.getUsername());
@@ -120,6 +138,12 @@ public class StudyService {
         }
     }
 
+    /**
+     * Metodi laskee käyttäjän kurssien arvosanojen keskiarvon parametrina annetulta lukukaudelta.
+     * 
+     * @param semester lukukausi jolta keskiarvo halutaan
+     * @return keskiarvo liukulukuna
+     */
     public double averageGrade(String semester) {
         try {
             List<CompletedCourse> courses = this.filterCoursesBySemester(semester);
@@ -142,6 +166,12 @@ public class StudyService {
 
     }
 
+    /**
+     * Metodi laskee käyttäjän ansaitsemat opintopisteet parametrina annetulta lukuvuodelta.
+     * 
+     * @param semester lukuvuosi jolta pisteet halutaan
+     * @return pisteiden määrä
+     */
     public int creditsTotal(String semester) {
         try {
             List<CompletedCourse> courses = this.filterCoursesBySemester(semester);
