@@ -19,5 +19,6 @@ Päivä | Aika | Mitä tehty
 23.4|2| Kurssin poistaminen toimii
 24.4|1,5| Käyttöliittymän parantelua, css-muotoilua lisätty
 25.4|2| Uusi toiminnallisuus: kurssilistaa voi filtteröidä lukukauden mukaan
-26.4|1| Testejä, korjailua
-Yhteensä|33,5|   
+26.4|1| Testejä, korjailua, käyttöohje
+2.5|1| Javadoci, korjailua
+Yhteensä|34,5|   
