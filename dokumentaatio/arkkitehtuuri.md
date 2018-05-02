@@ -3,16 +3,20 @@
 ## Rakenne
 Pakkaustasolla ohjelma noudattaa kerrosarkkitehtuuria.
 
-//kuva
+<img src="https://raw.githubusercontent.com/anL1/otm-harjoitustyo/master/dokumentaatio/images/pakkaukset.png" >
 
 Riippuvuudet on merkitty katkoviivoilla. Pakkaus _opintoapp.ui_ on riippuvainen pakkauksesta _opintoapp.domain_ sillä käyttöliittymä käyttää sovelluslogiikkaluokkaa _StudyService_. _domain_ pakkaus puolestaan on riippuvainen pitkäaikaistalletuksesta vastaavasta pakkauksesta _opintoapp.dao_.
 
-### Pakkaus/luokkarakenne
-
-<img src="https://raw.githubusercontent.com/anL1/otm-harjoitustyo/master/dokumentaatio/images/pakkauskaavio.png" >
-
 ## Sovelluslogiikka
+Sovelluslogiikan perustan muodostavat luokat [User](https://github.com/anL1/otm-harjoitustyo/blob/master/OpintoApp/src/main/java/opintoapp/domain/User.java), [Course](https://github.com/anL1/otm-harjoitustyo/blob/master/OpintoApp/src/main/java/opintoapp/domain/Course.java) ja [CompletedCourse](https://github.com/anL1/otm-harjoitustyo/blob/master/OpintoApp/src/main/java/opintoapp/domain/CompletedCourse.java), jotka kuvaavat käyttäjiä sekä kursseja. _Course_ on abstrakti luokka ja kuvaa kurssia, jolla on nimi sekä opintopistemäärä. _CompletedCourse_ laajentaa _Course_-luokkaa liittämällä siihen arvosanan. 
 
+Tällä hetkellä sovelluslogiikka käyttää käytännössä ainoastaan _CompletedCourse_-olioita, sillä sovellus tukee toistaiseksi ainoastaan _suoritettujen kurssien_ lisäämistä käyttäjän listaukseen (eli kurssille täytyy määritellä arvosana). Tällä luokkarakenteella sovellusta olisi kuitenkin helppo laajentaa vielä _tulevien kurssien_ lisäämiseen käyttäjälle esimerkiksi erilliseen listaukseen.
+
+Toiminnallisuudesta vastaa luokka [StudyService](https://github.com/anL1/otm-harjoitustyo/blob/master/OpintoApp/src/main/java/opintoapp/domain/StudyService.java). _StudyService_ pääsee käsiksi tietokantaan talletettuihin käyttäjien ja kurssien tietoihin pakkauksessa _opintoapp.dao_ sijaitsevien luokkien [UserDao](https://github.com/anL1/otm-harjoitustyo/blob/master/OpintoApp/src/main/java/opintoapp/dao/UserDao.java) ja [CourseDao](https://github.com/anL1/otm-harjoitustyo/blob/master/OpintoApp/src/main/java/opintoapp/dao/CourseDao.java) kautta. Riippuvuudet injektoidaan luokkaan konstruktorin yhteydessä.
+
+Luokkien suhteita kuvaava luokka/pakkauskaavio:
+
+<img src="https://raw.githubusercontent.com/anL1/otm-harjoitustyo/master/dokumentaatio/images/pakkausluokkakaavio.png" >
 
 ## Toiminnallisuus
 
