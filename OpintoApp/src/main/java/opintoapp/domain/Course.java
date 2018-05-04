@@ -3,10 +3,10 @@ package opintoapp.domain;
 import javafx.beans.property.SimpleStringProperty;
 
 /**
- * Sovelluksen käyttäjän kurssia edustava abstrakti luokka.
+ * Sovelluksen käyttäjän kurssia edustava luokka.
  *
  */
-public abstract class Course {
+public class Course {
 
     private SimpleStringProperty name = new SimpleStringProperty("");
     private int points;
@@ -32,7 +32,7 @@ public abstract class Course {
 
     @Override
     public String toString() {
-        return this.name + ", points:" + this.points;
+        return this.name.getValue() + ", credits: " + this.points;
     }
 
 }
