@@ -25,6 +25,10 @@ public class NewUserSceneController extends UiController {
     @FXML
     private PasswordField password;
 
+    /**
+     * sign up -napin klikkaus.
+     * @param event 
+     */
     @FXML
     public void handleSubmitButtonAction(ActionEvent event) {
         if (username.getText().length() >= 3 && password.getText().length() >= 3) {
@@ -40,6 +44,10 @@ public class NewUserSceneController extends UiController {
         }
     }
 
+    /**
+     * back-nappi.
+     * @param event 
+     */
     @FXML
     public void handleGoBack(ActionEvent event) {
         actiontarget.setText("");

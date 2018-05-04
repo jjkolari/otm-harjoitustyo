@@ -20,6 +20,10 @@ public class LoginSceneController extends UiController {
     @FXML
     private PasswordField password;
 
+    /**
+     * Log in -napin klikkaus
+     * @param event 
+     */
     @FXML
     protected void handleSubmitButtonAction(ActionEvent event) {
         boolean logInSuccess = this.service.logIn(username.getText(), password.getText());
@@ -33,6 +37,10 @@ public class LoginSceneController extends UiController {
         }
     }
 
+    /**
+     * new user -napin klikkaus.
+     * @param event 
+     */
     @FXML
     public void handleNewUser(ActionEvent event) {
         actiontarget.setText("");

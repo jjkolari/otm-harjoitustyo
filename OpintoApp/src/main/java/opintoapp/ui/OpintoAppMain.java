@@ -48,14 +48,23 @@ public class OpintoAppMain extends Application {
         stage.show();
     }
 
+    /**
+     * Asettaa ikkunaan Log in -näkymän.
+     */
     public void setLoginScene() {
         this.stage.setScene(loginScene);
     }
 
+    /**
+     * Asettaa ikkunaan New User -näkymän.
+     */
     public void setNewUserScene() {
         this.stage.setScene(newUserScene);
     }
 
+    /**
+     * Asettaa ikkunaan sovelluksen päänäkymän ja alustaa päänäkymään tervetuloviestin, kurssilistan ym.
+     */
     public void setWelcomeScene() {
         this.stage.setScene(welcomeScene);
         this.welcomescenecontroller.setActionTarget();
@@ -63,6 +72,12 @@ public class OpintoAppMain extends Application {
         this.welcomescenecontroller.setAverageAndTotal();
     }
 
+    /**
+     * Rakentaa Scene-olion eli näkymän FXML-tiedostolle.
+     * @param pathToFxmlFile polku tiedostoon
+     * @return Scene
+     * @throws Exception 
+     */
     public Scene buildSceneFor(String pathToFxmlFile) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(pathToFxmlFile));
         Parent parent = loader.load();
@@ -87,6 +102,10 @@ public class OpintoAppMain extends Application {
         return new Scene(parent, height, width);
     }
 
+    /**
+     * Asettaa scene-olion kontrolleriluokalle service- ja application-luokat.
+     * @param controller scenelle määritelty kontrolleri
+     */
     public void setServiceAndApplication(UiController controller) {
         controller.setService(this.studyService);
         controller.setApplication(this);
