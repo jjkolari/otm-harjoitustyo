@@ -20,5 +20,6 @@ Päivä | Aika | Mitä tehty
 24.4|1,5| Käyttöliittymän parantelua, css-muotoilua lisätty
 25.4|2| Uusi toiminnallisuus: kurssilistaa voi filtteröidä lukukauden mukaan
 26.4|1| Testejä, korjailua, käyttöohje
-2.5|1| Javadoci, korjailua
-Yhteensä|34,5|   
+2.5|1| Javadoc, korjailua
+4.5|3| Refaktorointia, daot, mainin init() ja ui-kontrollerit
+Yhteensä|37,5|   
