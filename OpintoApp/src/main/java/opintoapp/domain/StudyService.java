@@ -132,7 +132,7 @@ public class StudyService {
      */
     public void deleteCourse(String courseName) {
         try {
-            this.cdao.delete(courseName, this.loggedIn.getUsername());
+            this.cdao.delete(courseName, this.loggedIn);
         } catch (Exception e) {
             System.out.println("deletefail: " + e.getMessage());
         }

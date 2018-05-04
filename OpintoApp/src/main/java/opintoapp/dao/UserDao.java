@@ -24,17 +24,29 @@ public class UserDao {
      * @throws SQLException 
      */
     public void create(User user) throws SQLException {
-        Connection connection = db.getConnection();
-        PreparedStatement stmt = connection.prepareStatement("INSERT INTO User (username, name, password)"
+        try(Connection connection = db.getConnection();
+                PreparedStatement stmt = createInsertStatement(user, connection);){
+            stmt.executeUpdate();
+        }
+    }
+    
+    /**
+     * Apumetodi luo SQL-lauseen käyttäjän tietokantaan tallentamista varten.
+     * 
+     * @param user Käyttäjä
+     * @param conn Tietokantayhteys
+     * @return SQL-lause
+     * @throws SQLException 
+     */
+    public PreparedStatement createInsertStatement(User user, Connection conn) throws SQLException{
+        PreparedStatement stmt = conn.prepareStatement("INSERT INTO User (username, name, password)"
                 + "VALUES(?, ?, ?)");
         stmt.setString(1, user.getUsername());
         stmt.setString(2, user.getName());
         String hashed = BCrypt.hashpw(user.getPswd(), BCrypt.gensalt());
         stmt.setString(3, hashed);
-
-        stmt.executeUpdate();
-        stmt.close();
-        connection.close();
+        
+        return stmt;
     }
 
     /**
