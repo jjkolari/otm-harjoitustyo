@@ -7,6 +7,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import opintoapp.domain.StudyService;
 
+/**
+ * Log in -näkymän kontrolleriluokka.
+ * 
+ */
 public class LoginSceneController extends UiController {
 
     @FXML

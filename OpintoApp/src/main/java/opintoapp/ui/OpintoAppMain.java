@@ -8,6 +8,10 @@ import javafx.stage.Stage;
 import opintoapp.dao.Database;
 import opintoapp.domain.StudyService;
 
+/**
+ * Käyttöliittymän rakentava ja ohjelman käynnistävä pääluokka.
+ * 
+ */
 public class OpintoAppMain extends Application {
 
     private final double height = 800;

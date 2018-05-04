@@ -7,6 +7,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import opintoapp.domain.StudyService;
 
+/**
+ * Uuden käyttäjän luomisen kontrolleriluokka.
+ * 
+ */
 public class NewUserSceneController extends UiController {
 
     @FXML

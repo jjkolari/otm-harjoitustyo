@@ -16,6 +16,10 @@ import javafx.scene.text.Text;
 import opintoapp.domain.Course;
 import opintoapp.domain.StudyService;
 
+/**
+ * Sisäänkirjautumisen jälkeisen näkymän kontrolleriluokka.
+ * 
+ */
 public class WelcomeSceneController extends UiController{
 
     @FXML
@@ -40,11 +44,17 @@ public class WelcomeSceneController extends UiController{
     private ComboBox semesterFilter;
     private ObservableList<Course> courseList;
 
+    /**
+     * Welcome-tekstin asettaminen.
+     */
     public void setActionTarget() {
         String username = this.service.getLoggedIn().getUsername();
         this.actionTarget.setText("Welcome to OpintoApp " + username);
     }
 
+    /**
+     * Asettaa kurssien keskiarvo- ja opintopistemäärä- tekstikenttien arvot.
+     */
     public void setAverageAndTotal() {
         String showingSemester = "";
         if (this.semesterFilter.getValue() == null) {
@@ -69,11 +79,17 @@ public class WelcomeSceneController extends UiController{
         }
     }
 
+    /**
+     * Asettaa kurssilistauksen taulukkoelementtiin.
+     */
     public void setCourseList() {
         this.courseList = FXCollections.observableArrayList(this.service.getUsersCourses());
         tableView.setItems(courseList);
     }
 
+    /**
+     * Filter-napin käsittely.
+     */
     public void setFilteredCourseList() {
         if (this.semesterFilter.getValue() == null) {
             return;
@@ -84,6 +100,9 @@ public class WelcomeSceneController extends UiController{
         this.setAverageAndTotal();
     }
 
+    /**
+     * Add course -napin klikkaus.
+     */
     public void handleAddCourse() {
         if (courseName.getText().equals("") || creditBox.getValue() == null
                 || gradeBox.getValue() == null || semester.getValue() == null) {
@@ -105,6 +124,9 @@ public class WelcomeSceneController extends UiController{
         this.semesterFilter.getSelectionModel().selectFirst();
     }
 
+    /**
+     * Delete-napin klikkaus.
+     */
     public void handleDelete() {
         String courseName = this.delCourseName.getText();
         if (courseName.length() == 0) {
@@ -125,7 +147,10 @@ public class WelcomeSceneController extends UiController{
             }
         }
     }
-
+    
+    /**
+     * Uloskirjautuminen.
+     */
     public void handleLogOut() {
         this.application.setLoginScene();
     }
