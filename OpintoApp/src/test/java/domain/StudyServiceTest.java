@@ -107,6 +107,13 @@ public class StudyServiceTest {
     public void averageTest() {
         assertEquals(5.0, this.service.averageGrade("All"), 0.1);
     }
+    
+    @Test
+    public void averageTestNoCoursesAdded() {
+        this.service.createUser("testuser", "testuser", "testing");
+        this.service.logIn("testuser", "testing");
+        assertEquals(0, this.service.averageGrade("All"), 0.1);
+    }
 
     @Test
     public void deleteCourse() {
@@ -118,5 +125,12 @@ public class StudyServiceTest {
     public void filterBySemester() {
         List<CompletedCourse> l = this.service.filterCoursesBySemester("2017-2018");
         assertEquals(this.course.toString(), l.get(0).toString());
+    }
+    
+    @Test
+    public void filterBySemesterReturnsEmptyListWhenNoCoursesAdded() {
+        this.service.createUser("tester", "testuser", "tester");
+        this.service.logIn("tester", "tester");
+        assertTrue(this.service.filterCoursesBySemester("2017-2018").isEmpty());
     }
 }

@@ -184,6 +184,7 @@ public class StudyService {
             }
             return total;
         } catch (Exception e) {
+            System.out.println("creditstotalfail:" + e.getMessage());
             return 0;
         }
     }
