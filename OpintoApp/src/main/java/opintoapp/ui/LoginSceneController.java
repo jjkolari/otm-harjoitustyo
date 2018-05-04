@@ -1,4 +1,3 @@
-
 package opintoapp.ui;
 
 import javafx.event.ActionEvent;
@@ -8,25 +7,19 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import opintoapp.domain.StudyService;
 
-public class LoginSceneController {
-    
-    @FXML private Text actiontarget;
-    @FXML private TextField username;
-    @FXML private PasswordField password;
-    private StudyService service;
-    private OpintoAppMain application;
-    
-    public void setService(StudyService service){
-        this.service = service;
-    }
-    
-    public void setApplication(OpintoAppMain application){
-        this.application = application;
-    }
-    
-    @FXML protected void handleSubmitButtonAction(ActionEvent event) {
+public class LoginSceneController extends UiController {
+
+    @FXML
+    private Text actiontarget;
+    @FXML
+    private TextField username;
+    @FXML
+    private PasswordField password;
+
+    @FXML
+    protected void handleSubmitButtonAction(ActionEvent event) {
         boolean logInSuccess = this.service.logIn(username.getText(), password.getText());
-        if(logInSuccess){
+        if (logInSuccess) {
             username.setText("");
             password.setText("");
             actiontarget.setText("");
@@ -35,9 +28,9 @@ public class LoginSceneController {
             actiontarget.setText("Unknown user");
         }
     }
-    
+
     @FXML
-    public void handleNewUser(ActionEvent event){
+    public void handleNewUser(ActionEvent event) {
         actiontarget.setText("");
         username.setText("");
         password.setText("");

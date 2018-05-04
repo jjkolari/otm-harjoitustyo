@@ -18,6 +18,8 @@ public class OpintoAppMain extends Application {
     private Scene newUserScene;
     private Scene welcomeScene;
     private WelcomeSceneController welcomescenecontroller;
+    private LoginSceneController loginscenecontroller;
+    private NewUserSceneController newuserscenecontroller;
     private Stage stage;
 
     @Override
@@ -25,26 +27,12 @@ public class OpintoAppMain extends Application {
         this.database = new Database("jdbc:sqlite:./OpintoApp.db");
         this.studyService = new StudyService(this.database);
 
-        FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("/fxml/Login.fxml"));
-        Parent login = loginLoader.load();
-        LoginSceneController loginscenecontroller = loginLoader.getController();
-        loginscenecontroller.setService(this.studyService);
-        loginscenecontroller.setApplication(this);
-        this.loginScene = new Scene(login, height, width);
+        this.loginScene = buildSceneFor("/fxml/Login.fxml");
 
-        FXMLLoader newUserLoader = new FXMLLoader(getClass().getResource("/fxml/NewUser.fxml"));
-        Parent newUser = newUserLoader.load();
-        NewUserSceneController newusercontroller = newUserLoader.getController();
-        newusercontroller.setService(studyService);
-        newusercontroller.setApplication(this);
-        this.newUserScene = new Scene(newUser, height, width);
+        this.newUserScene = buildSceneFor("/fxml/NewUser.fxml");
 
-        FXMLLoader welcomeLoader = new FXMLLoader(getClass().getResource("/fxml/Welcome.fxml"));
-        Parent welcome = welcomeLoader.load();
-        welcomescenecontroller = welcomeLoader.getController();
-        welcomescenecontroller.setService(studyService);
-        welcomescenecontroller.setApplication(this);
-        this.welcomeScene = new Scene(welcome, height, width);
+        this.welcomeScene = buildSceneFor("/fxml/Welcome.fxml");
+        
         this.welcomeScene.getStylesheets().add(getClass().getResource("/welcome.css").toExternalForm());
     }
 
@@ -69,6 +57,35 @@ public class OpintoAppMain extends Application {
         this.welcomescenecontroller.setActionTarget();
         this.welcomescenecontroller.setCourseList();
         this.welcomescenecontroller.setAverageAndTotal();
+    }
+
+    public Scene buildSceneFor(String pathToFxmlFile) throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(pathToFxmlFile));
+        Parent parent = loader.load();
+        
+        if (pathToFxmlFile.equals("/fxml/Login.fxml")) {
+
+            this.loginscenecontroller = loader.getController();
+            setServiceAndApplication(loginscenecontroller);
+
+        } else if (pathToFxmlFile.equals("/fxml/NewUser.fxml")) {
+
+            this.newuserscenecontroller = loader.getController();
+            setServiceAndApplication(newuserscenecontroller);
+
+        } else if (pathToFxmlFile.equals("/fxml/Welcome.fxml")) {
+
+            this.welcomescenecontroller = loader.getController();
+            setServiceAndApplication(welcomescenecontroller);
+
+        }
+        
+        return new Scene(parent, height, width);
+    }
+
+    public void setServiceAndApplication(UiController controller) {
+        controller.setService(this.studyService);
+        controller.setApplication(this);
     }
 
     public static void main(String[] args) {

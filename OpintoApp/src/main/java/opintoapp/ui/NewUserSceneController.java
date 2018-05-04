@@ -1,4 +1,3 @@
-
 package opintoapp.ui;
 
 import javafx.event.ActionEvent;
@@ -8,51 +7,39 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import opintoapp.domain.StudyService;
 
-public class NewUserSceneController {
-    
-    @FXML 
+public class NewUserSceneController extends UiController {
+
+    @FXML
     private Text actiontarget;
-    
+
     @FXML
     private TextField username;
-    
+
     @FXML
     private TextField name;
-    
+
     @FXML
     private PasswordField password;
-    
-    private OpintoAppMain application;
-    private StudyService service;
-    
-    
-    public void setApplication(OpintoAppMain application){
-        this.application = application;
-    }
-    
-    public void setService(StudyService service){
-        this.service = service;
-    }
-    
-    @FXML 
+
+    @FXML
     public void handleSubmitButtonAction(ActionEvent event) {
-        if(username.getText().length() >= 3 && password.getText().length() >= 3){
+        if (username.getText().length() >= 3 && password.getText().length() >= 3) {
             actiontarget.setText("User " + username.getText() + " created");
-            
-            service.createUser(username.getText(), name.getText(), password.getText());
+
+            this.service.createUser(username.getText(), name.getText(), password.getText());
             this.username.setText("");
             this.name.setText("");
             this.password.setText("");
-            
+
         } else {
             actiontarget.setText("Username and password must contain at least 3 characters");
         }
     }
-    
+
     @FXML
-    public void handleGoBack(ActionEvent event){
+    public void handleGoBack(ActionEvent event) {
         actiontarget.setText("");
         this.application.setLoginScene();
     }
-    
+
 }

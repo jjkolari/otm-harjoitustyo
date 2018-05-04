@@ -16,7 +16,7 @@ import javafx.scene.text.Text;
 import opintoapp.domain.Course;
 import opintoapp.domain.StudyService;
 
-public class WelcomeSceneController {
+public class WelcomeSceneController extends UiController{
 
     @FXML
     private Text actionTarget;
@@ -38,17 +38,7 @@ public class WelcomeSceneController {
     private ComboBox semester;
     @FXML
     private ComboBox semesterFilter;
-    private StudyService service;
-    private OpintoAppMain application;
     private ObservableList<Course> courseList;
-
-    public void setApplication(OpintoAppMain application) {
-        this.application = application;
-    }
-
-    public void setService(StudyService service) {
-        this.service = service;
-    }
 
     public void setActionTarget() {
         String username = this.service.getLoggedIn().getUsername();
