@@ -30,7 +30,8 @@
                     <Button onAction="#handleLogOut" prefHeight="26.0" prefWidth="84.0" text="log out" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             
                     <GridPane hgap="10" styleClass="content-section" vgap="10" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                        <ComboBox fx:id="semester" prefWidth="150.0" promptText="Semester" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Semester" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <ComboBox fx:id="semester" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                             <items>
                                 <FXCollections fx:factory="observableArrayList">
                                     <String fx:value="2016-2017" />
@@ -147,6 +148,11 @@
                                 <PropertyValueFactory property="grade" />
                             </cellValueFactory>
                         </TableColumn>
+                        <TableColumn text="Semester">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="semester" />
+                            </cellValueFactory>
+                        </TableColumn>
                     </columns>
                     <items>
                         <FXCollections fx:factory="observableArrayList">
@@ -156,7 +162,7 @@
                 </TableView>
                 <VBox>
                     <children>
-                        <ComboBox prefWidth="150.0" promptText="Showing..." fx:id="semesterFilter">
+                        <ComboBox fx:id="semesterFilter" prefWidth="150.0" promptText="Showing...">
                             <items>
                                 <FXCollections fx:factory="observableArrayList">
                                     <String fx:value="All" />
