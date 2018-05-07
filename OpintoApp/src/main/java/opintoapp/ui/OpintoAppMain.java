@@ -22,8 +22,6 @@ public class OpintoAppMain extends Application {
     private Scene newUserScene;
     private Scene welcomeScene;
     private WelcomeSceneController welcomescenecontroller;
-    private LoginSceneController loginscenecontroller;
-    private NewUserSceneController newuserscenecontroller;
     private Stage stage;
 
     @Override
@@ -82,22 +80,11 @@ public class OpintoAppMain extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(pathToFxmlFile));
         Parent parent = loader.load();
         
-        if (pathToFxmlFile.equals("/fxml/Login.fxml")) {
-
-            this.loginscenecontroller = loader.getController();
-            setServiceAndApplication(loginscenecontroller);
-
-        } else if (pathToFxmlFile.equals("/fxml/NewUser.fxml")) {
-
-            this.newuserscenecontroller = loader.getController();
-            setServiceAndApplication(newuserscenecontroller);
-
-        } else if (pathToFxmlFile.equals("/fxml/Welcome.fxml")) {
-
+        if (pathToFxmlFile.equals("/fxml/Welcome.fxml")) {
             this.welcomescenecontroller = loader.getController();
-            setServiceAndApplication(welcomescenecontroller);
-
         }
+        
+        setServiceAndApplication(loader.getController());
         
         return new Scene(parent, height, width);
     }
