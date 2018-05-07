@@ -2,12 +2,12 @@ package opintoapp.dao;
 
 import org.mindrot.jbcrypt.BCrypt;
 import java.sql.*;
-import java.util.List;
+import java.util.function.Consumer;
 import opintoapp.domain.User;
 
 /**
  * Dao-luokka käyttäjien tietokantatalletukseen.
- * 
+ *
  */
 public class UserDao {
 
@@ -19,44 +19,34 @@ public class UserDao {
 
     /**
      * Tallentaa parametrina saadun käyttäjän tietokantaan.
-     * 
+     *
      * @param user Käyttäjä
-     * @throws SQLException 
+     * @throws SQLException
      */
     public void create(User user) throws SQLException {
-        try(Connection connection = db.getConnection();
-                PreparedStatement stmt = createInsertStatement(user, connection);){
-            stmt.executeUpdate();
-        }
-    }
-    
-    /**
-     * Apumetodi luo SQL-lauseen käyttäjän tietokantaan tallentamista varten.
-     * 
-     * @param user Käyttäjä
-     * @param conn Tietokantayhteys
-     * @return SQL-lause
-     * @throws SQLException 
-     */
-    public PreparedStatement createInsertStatement(User user, Connection conn) throws SQLException{
-        PreparedStatement stmt = conn.prepareStatement("INSERT INTO User (username, name, password)"
-                + "VALUES(?, ?, ?)");
-        stmt.setString(1, user.getUsername());
-        stmt.setString(2, user.getName());
-        String hashed = BCrypt.hashpw(user.getPswd(), BCrypt.gensalt());
-        stmt.setString(3, hashed);
+        Consumer<PreparedStatement> statement = (stmt) -> {
+            try {
+                stmt.setString(1, user.getUsername());
+                stmt.setString(2, user.getName());
+                String hashed = BCrypt.hashpw(user.getPswd(), BCrypt.gensalt());
+                stmt.setString(3, hashed);
+            } catch (Exception e) {
+            }
+        };
         
-        return stmt;
+        this.db.deleteUpdateOrInsert("INSERT INTO User (username, name, password)"
+                + "VALUES(?, ?, ?)", statement);
     }
 
     /**
-     * Metodi etsii tietokannasta käyttäjän joka vastaa parametrina saatua käyttäjänimeä ja
-     * salasanaa, salasanavertailu BCryptiä käyttäen suoritetaan tässä metodissa.
-     * 
+     * Metodi etsii tietokannasta käyttäjän joka vastaa parametrina saatua
+     * käyttäjänimeä ja salasanaa, salasanavertailu BCryptiä käyttäen
+     * suoritetaan tässä metodissa.
+     *
      * @param username Käyttäjänimi
      * @param password Salasana cleantext-muodossa.
      * @return null mikäli salasana ei oikein, muuten palauttaa User-olion.
-     * @throws SQLException 
+     * @throws SQLException
      */
     public User findOne(String username, String password) throws SQLException {
         Connection conn = db.getConnection();

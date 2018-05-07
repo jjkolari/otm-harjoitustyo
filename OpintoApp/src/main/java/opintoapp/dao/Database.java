@@ -2,6 +2,7 @@ package opintoapp.dao;
 
 import java.nio.file.*;
 import java.sql.*;
+import java.util.function.Consumer;
 
 /**
  * Tietokantaa edustava luokka.
@@ -53,5 +54,15 @@ public class Database {
      */
     public Connection getConnection() throws SQLException {
         return DriverManager.getConnection(databaseAdress);
+    }
+    
+    public void deleteUpdateOrInsert(String sql, Consumer<PreparedStatement> consumer) throws SQLException{
+        Connection conn = this.getConnection();
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        consumer.accept(stmt);
+        
+        stmt.executeUpdate();
+        stmt.close();
+        conn.close();
     }
 }

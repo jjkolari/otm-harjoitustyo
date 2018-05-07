@@ -3,6 +3,7 @@ package opintoapp.dao;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 import opintoapp.domain.*;
 
 /**
@@ -77,30 +78,19 @@ public class CourseDao {
      * @throws SQLException
      */
     public void create(CompletedCourse c, User u) throws SQLException {
-        this.u = u;
-        try (Connection conn = this.db.getConnection();
-                PreparedStatement stmt = createInserStatement(c, conn);) {
-            stmt.executeUpdate();
-        }
-    }
-
-    /**
-     * Apumetodi luo SQL-lauseen kurssin lisäämiselle tietokantaan.
-     * 
-     * @param c kurssi
-     * @param conn tietokantayhteys lauseen luomista varten
-     * @return SQL-lause
-     * @throws SQLException 
-     */
-    public PreparedStatement createInserStatement(CompletedCourse c, Connection conn) throws SQLException {
-        PreparedStatement stmt = conn.prepareStatement("INSERT INTO Course (name, credits, grade, semester, user_username)"
-                + "VALUES (?, ?, ?, ?, ?)");
-        stmt.setString(1, c.getName());
-        stmt.setInt(2, c.getPoints());
-        stmt.setInt(3, c.getGrade());
-        stmt.setString(4, c.getSemester());
-        stmt.setString(5, u.getUsername());
-        return stmt;
+        Consumer<PreparedStatement> statement = (stmt) -> {
+            try {
+                stmt.setString(1, c.getName());
+                stmt.setInt(2, c.getPoints());
+                stmt.setInt(3, c.getGrade());
+                stmt.setString(4, c.getSemester());
+                stmt.setString(5, u.getUsername());
+            } catch (Exception e) {
+            }
+        };
+        
+        this.db.deleteUpdateOrInsert("INSERT INTO Course (name, credits, grade, semester, user_username)"
+                + "VALUES (?, ?, ?, ?, ?)", statement);
     }
 
     /**
@@ -111,26 +101,16 @@ public class CourseDao {
      * @throws SQLException
      */
     public void delete(String courseName, User u) throws SQLException {
-        this.u = u;
-        try (Connection conn = this.db.getConnection();
-                PreparedStatement stmt = createDeleteStatement(courseName, conn);) {
-            stmt.executeUpdate();
-        }
-    }
+        Consumer<PreparedStatement> statement = (stmt) -> {
+            try {
+                stmt.setString(1, courseName);
+                stmt.setString(2, u.getUsername());
+            } catch (Exception e) {
+            }
+        };
 
-    /**
-     * Apumetodi luo SQL-lauseen kurssin poistamiselle tietokannasta.
-     * 
-     * @param courseName kurssin nimi
-     * @param conn tietokantayhteys
-     * @return SQL-lause
-     * @throws SQLException 
-     */
-    public PreparedStatement createDeleteStatement(String courseName, Connection conn) throws SQLException {
-        PreparedStatement stmt = conn.prepareStatement("DELETE FROM Course "
-                + "WHERE name = ? AND user_username = ?");
-        stmt.setString(1, courseName);
-        stmt.setString(2, this.u.getUsername());
-        return stmt;
+        this.db.deleteUpdateOrInsert("DELETE FROM Course "
+                + "WHERE name = ? AND user_username = ?", statement);
+
     }
 }
