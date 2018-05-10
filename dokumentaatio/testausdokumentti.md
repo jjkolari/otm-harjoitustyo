@@ -5,7 +5,7 @@ Järjestelmätestaus on tapahtunut manuaalisesti.
 ## Yksikkö- ja integraatiotestaus
 Tärkeimmät testit kohdistuvat sovelluslogiikkapakkaukseen _opintoapp.domain_. 
 Integraatiotestit tapahtuvat käytännössä sovelluslogiikkaa testaavassa testiluokassa
-_StudyServiceTest_. Näissä testeissä pyritään testaamaan sovellusta realistisilla käyttäjää
+[StudyServiceTest](https://github.com/anL1/otm-harjoitustyo/blob/master/OpintoApp/src/test/java/domain/StudyServiceTest.java). Näissä testeissä pyritään testaamaan sovellusta realistisilla käyttäjää
 simuloivilla skenaarioilla.
 
 Integraatiotestien lisäksi muihin _opintoapp.domain_-pakkauksen luokkiin on kohdistettu
