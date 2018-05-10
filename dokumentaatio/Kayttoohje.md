@@ -12,13 +12,20 @@ java -jar Opintoapp-2.0.jar
 Ensimmäisen käynnistyksen yhteydessä OpintoApp luo käynnistyshakemistoon tiedoston _OpintoApp.db_. Kaikki suorituksen aikaiset tiedot tallennetaan tähän tietokantaan, älä siis poista tai siirrä sitä toiseen hakemistoon.
 
 Sovellus käynnistyy kirjautumisnäkymään. Voit nyt luoda uuden käyttäjän klikkaamalla _create new user_, jolloin sovellus siirtyy Luo uusi käyttäjä -näkymään. Käyttäjänimen ja salasanan tulee olla vähintään 3 merkkiä pitkät.
+
+### Näkymä käyttäjän luomiseen
+<img src="https://raw.githubusercontent.com/anL1/otm-harjoitustyo/master/dokumentaatio/images/newuser.png" width="600" >
+
 Käyttäjän luomisen jälkeen kirjautuminen onnistuu palaamalla kirjautumisnäkymään napilla _back_ ja syöttämällä käyttäjätunnuksen ja salasanan. Sovellus ilmoittaa tuntemattomasta käyttäjästä.
+
+### Kirjautumisnäkymä
+<img src="https://raw.githubusercontent.com/anL1/otm-harjoitustyo/master/dokumentaatio/images/loginmanual.png" width="600" >
 
 ## Kirjautumisen jälkeen
 
 Kirjautumisen jälkeen siirrytään näkymään, joka listaa käyttäjällesi lisäämäsi kurssit.
 
-<img src="https://raw.githubusercontent.com/anL1/otm-harjoitustyo/master/dokumentaatio/images/welcome.png" >
+<img src="https://raw.githubusercontent.com/anL1/otm-harjoitustyo/master/dokumentaatio/images/welcome.png" width="600" >
 
 Näkymässä voit lisätä käyttäjällesi lisää suoritettuja kursseja, poistaa niitä, sekä tarkastella kursseja sekä niihin liittyvää statistiikkaa lukuvuosittain. 
 
