@@ -11,8 +11,8 @@ java -jar Opintoapp-2.0.jar
 
 Ensimmäisen käynnistyksen yhteydessä OpintoApp luo käynnistyshakemistoon tiedoston _OpintoApp.db_. Kaikki suorituksen aikaiset tiedot tallennetaan tähän tietokantaan, älä siis poista tai siirrä sitä toiseen hakemistoon.
 
-Sovellus käynnistyy kirjautumisnäkymään. Voit nyt luoda uuden käyttäjän klikkaamalla _create new user_.
-Käyttäjän luomisen jälkeen kirjautuminen onnistuu palaamalla kirjautumisnäkymään ja syöttämällä käyttäjätunnuksen ja salasanan.
+Sovellus käynnistyy kirjautumisnäkymään. Voit nyt luoda uuden käyttäjän klikkaamalla _create new user_, jolloin sovellus siirtyy Luo uusi käyttäjä -näkymään. Käyttäjänimen ja salasanan tulee olla vähintään 3 merkkiä pitkät.
+Käyttäjän luomisen jälkeen kirjautuminen onnistuu palaamalla kirjautumisnäkymään napilla _back_ ja syöttämällä käyttäjätunnuksen ja salasanan. Sovellus ilmoittaa tuntemattomasta käyttäjästä.
 
 ## Kirjautumisen jälkeen
 
