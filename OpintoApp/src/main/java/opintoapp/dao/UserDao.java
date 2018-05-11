@@ -78,7 +78,7 @@ public class UserDao implements UserDaoApi {
      *
      * @param rs Tietokantakyselyn resultset
      * @param password salasana
-     * @return
+     * @return true jos salasana oikein ja käyttäjä löytyi, muutoin false
      * @throws SQLException
      */
     public boolean checkResultSetAndPassword(ResultSet rs, String password) throws SQLException {

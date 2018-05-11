@@ -56,6 +56,12 @@ public class Database {
         return DriverManager.getConnection(databaseAdress);
     }
 
+    /**
+     * Luo SQL-kyselyn tietokantaan poistamista, päivitystä tai tallentamista varten.
+     * @param sql Kysely merkkijonona
+     * @param consumer Lambda-funktiona annettu statement joka suorittaa kyselyn.
+     * @throws SQLException 
+     */
     public void deleteUpdateOrInsert(String sql, Consumer<PreparedStatement> consumer) throws SQLException {
         Connection conn = this.getConnection();
         PreparedStatement stmt = conn.prepareStatement(sql);
