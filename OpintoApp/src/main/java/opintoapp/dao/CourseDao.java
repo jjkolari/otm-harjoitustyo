@@ -10,7 +10,7 @@ import opintoapp.domain.*;
  * Dao-luokka kurssien tietokantatalletukseen.
  *
  */
-public class CourseDao {
+public class CourseDao implements CourseDaoApi {
 
     private Database db;
     private User u;
@@ -26,6 +26,7 @@ public class CourseDao {
      * @return Kurssiolioita sisältävä lista
      * @throws SQLException
      */
+    @Override
     public List<CompletedCourse> getAll(User u) throws SQLException {
         Connection conn = db.getConnection();
         PreparedStatement stmt = conn.prepareStatement("SELECT * FROM Course "
@@ -51,6 +52,7 @@ public class CourseDao {
      * @return Lista kurssiolioita
      * @throws SQLException
      */
+    @Override
     public List<CompletedCourse> getSemester(String semester, User u) throws SQLException {
         Connection conn = db.getConnection();
         PreparedStatement stmt = conn.prepareStatement("SELECT * FROM Course "
@@ -77,6 +79,7 @@ public class CourseDao {
      * @param u Käyttäjä
      * @throws SQLException
      */
+    @Override
     public void create(CompletedCourse c, User u) throws SQLException {
         Consumer<PreparedStatement> statement = (stmt) -> {
             try {
@@ -100,6 +103,7 @@ public class CourseDao {
      * @param u Käyttäjä, jonka listauksesta kurssi poistetaan
      * @throws SQLException
      */
+    @Override
     public void delete(String courseName, User u) throws SQLException {
         Consumer<PreparedStatement> statement = (stmt) -> {
             try {

@@ -9,7 +9,7 @@ import opintoapp.domain.User;
  * Dao-luokka käyttäjien tietokantatalletukseen.
  *
  */
-public class UserDao {
+public class UserDao implements UserDaoApi {
 
     private Database db;
 
@@ -23,6 +23,7 @@ public class UserDao {
      * @param user Käyttäjä
      * @throws SQLException
      */
+    @Override
     public void create(User user) throws SQLException {
         Consumer<PreparedStatement> statement = (stmt) -> {
             try {
@@ -47,6 +48,7 @@ public class UserDao {
      * @return null mikäli salasana ei oikein, muuten palauttaa User-olion.
      * @throws SQLException
      */
+    @Override
     public User findOne(String username, String password) throws SQLException {
         try (Connection conn = db.getConnection();
                 PreparedStatement stmt = conn.prepareStatement("Select * From User Where "
