@@ -33,12 +33,12 @@ Toiminnallisuudesta vastaa luokka [StudyService](https://github.com/anL1/otm-har
 
 Luokkien suhteita kuvaava luokka/pakkauskaavio:
 
-<img src="https://raw.githubusercontent.com/anL1/otm-harjoitustyo/master/dokumentaatio/images/pakkausluokkakaavio.png" >
+<img src="https://raw.githubusercontent.com/anL1/otm-harjoitustyo/master/dokumentaatio/images/luokkapakkauskaavioLopullinen.png" >
 
 ## Tietojen talletus
 Tietojen talletuksesta vastaavat luokat sijaitsevat pakkauksessa [opintoapp.dao](https://github.com/anL1/otm-harjoitustyo/tree/master/OpintoApp/src/main/java/opintoapp/dao).
  Tiedot talletetaan sqliten avulla ensimmäisen käynnistyksen yhteydessä luotavaan tietokantaan.
- Käyttäjien tiedot tallennetaan luokan [UserDao](https://github.com/anL1/otm-harjoitustyo/blob/master/OpintoApp/src/main/java/opintoapp/dao/UserDao.java) avulla ja käyttäjiin liittyvien kurssien tiedot luokan [CourseDao](https://github.com/anL1/otm-harjoitustyo/blob/master/OpintoApp/src/main/java/opintoapp/dao/CourseDao.java) avulla.
+ Käyttäjien tiedot tallennetaan luokan [UserDao](https://github.com/anL1/otm-harjoitustyo/blob/master/OpintoApp/src/main/java/opintoapp/dao/UserDao.java) avulla ja käyttäjiin liittyvien kurssien tiedot luokan [CourseDao](https://github.com/anL1/otm-harjoitustyo/blob/master/OpintoApp/src/main/java/opintoapp/dao/CourseDao.java) avulla. UserDao ja CourseDao on toteutettu interface-luokkien _UserDaoApi_ ja _CourseDaoApi_ toteutuksina. Mikäli tiedon talletustapaa haluttaisiin muuttaa tai luokkien toteutuksia vaihtaa, se onnistuisi interfacen kautta helposti.
 
 ### Tietokanta
 Tietokannan luomisen yhteydessä luodaan seuraavat tietokantataulut:
