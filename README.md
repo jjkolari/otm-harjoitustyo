@@ -17,6 +17,8 @@ Kurssille Ohjelmistotekniikan menetelmät toteutettava desktop-sovellus. Sovellu
 
 [Viikko 6](https://github.com/anL1/otm-harjoitustyo/releases/tag/v2.0_viikko6)
 
+[Loppupalautus](https://github.com/anL1/otm-harjoitustyo/releases/tag/v.3.0)
+
 ## Komentorivitoiminnot
 Ohjelman voi suorittaa komentoriviltä komennolla</br>
 
