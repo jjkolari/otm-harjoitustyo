@@ -72,11 +72,13 @@ Testauksessa hyödynnetään testejä varten luotavaa tietokantaa _TestOpintoApp
 jälkeen.
 
 ## Toiminnallisuus
-//todo lisää tänne
+
 ### Sisäänkirjautuminen
 Sekvenssikaavio kuvaa, mitä sovelluksessa tapahtuu kun käyttäjä kirjautuu sisään.
 
 <img src="https://raw.githubusercontent.com/anL1/otm-harjoitustyo/master/dokumentaatio/images/LogIn.png" >
+
+_Log in_ -nappiin liitetty tapahtumankäsittelijä kutsuu luokan StudyService metodia logIn, joka hakee käyttäjänimen ja salasanan perusteella käyttäjän tietokannasta ja asettaa käyttäjän luokan attribuuttiin. Tämän jälkeen käyttöliittymän kontrolleriluokka kutsuu Main-luokan metodia, joka vaihtaa sovelluksen stageen sovelluksen päänäkymän welcomeScenen.
 
 ### Kurssin lisääminen
 Kun käyttäjä on täyttänyt sovelluksen päänäkymässä tekstikentät asianmukaisesti ja klikkaa _Add course_-nappia, etenee ohjelman toiminta seuraavasti:
@@ -84,4 +86,11 @@ Kun käyttäjä on täyttänyt sovelluksen päänäkymässä tekstikentät asian
 <img src="https://raw.githubusercontent.com/anL1/otm-harjoitustyo/master/dokumentaatio/images/Add%20Course.png" >
 
 Nappiin liitetty tapahtumankäsittelijä kutsuu luokan StudyService metodia addCourse, joka lisää kurssin tietokantaan. Tämän jälkeen tapahtumankäsittelijä kutsuu käyttöliittymän kontrollerin metodia setCourseList, joka renderöi käyttöliittymän listaukseen päivitetyn kurssilistan.
+
+### Muut toiminnallisuudet
+Sama toimintalogiikka toistuu muissa sovelluksen päätoiminnallisuuksissa. Ui:n kontrolleri kutsuu StudyService-luokasta sopivaa metodia, joka päivittää tarvittaessa tiedot tietokantaan. Suorituksen jälkeen kontrolleri tarvittaessa päivittää käyttöliittymän näkymää, jolloin toiminto ilmenee käyttäjälle.
+
 ## Ohjelmaan jääneet heikkoudet
+* Konfiguraatiot on kovakoodattu ohjelmaan. Esim tietokannan nimi ja sijainti ei tällä hetkellä ole käyttäjän päätettävissä, mikä ei noudata täysin hyviä toimintaperiaatteita. Myös esimerkiksi kurssien opintopistemäärät, lukukaudet ym olisi hyvä olla käyttäjän määriteltävissä esim käyttöliittymän kautta, eikä kovakoodattuna FXML:n.
+* Käyttöliittymässä käyttäjän syötteitä ei ole tarkastettu niin hyvin kuin olisi voinut, esim käyttäjänimessä erikoismerkit ovat tällä hetkellä sallittuja. Tämä ei aiheuta ohjelman toimintaan ongelmia, mutta ei ole hyvän käytänteen mukaista.
+* Käyttöliittymä ei ole niin intuitiivinen kuin voisi, esimerkiksi kurssin poisto listauksesta on toteutettu hieman kömpelösti. 
