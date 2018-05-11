@@ -72,8 +72,10 @@ Testauksessa hyödynnetään testejä varten luotavaa tietokantaa _TestOpintoApp
 jälkeen.
 
 ## Toiminnallisuus
-
+//todo lisää tänne
 ### Sisäänkirjautuminen
 Sekvenssikaavio kuvaa luokkatasolla kuinka sovelluksen sisäänkirjautuminen on toteutettu.
 
 <img src="https://raw.githubusercontent.com/anL1/otm-harjoitustyo/master/dokumentaatio/images/LogIn.png" >
+
+## Ohjelmaan jääneet heikkoudet
