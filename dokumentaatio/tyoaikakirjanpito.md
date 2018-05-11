@@ -22,4 +22,8 @@ Päivä | Aika | Mitä tehty
 26.4|1| Testejä, korjailua, käyttöohje
 2.5|1| Javadoc, korjailua
 4.5|3| Refaktorointia, daot, mainin init() ja ui-kontrollerit
-Yhteensä|37,5|   
+7.5|1| Refaktorointia, korjailua, lukukausi taulukkoon
+9.5|1| Dokumentaatiota
+10.5|1| Dokumentaatiota
+11.5|3| Dokumentaatiota, viimeiset refaktoroinnit, loppurelease
+Yhteensä|43,5|   
