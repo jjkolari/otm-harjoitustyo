@@ -74,8 +74,14 @@ jälkeen.
 ## Toiminnallisuus
 //todo lisää tänne
 ### Sisäänkirjautuminen
-Sekvenssikaavio kuvaa luokkatasolla kuinka sovelluksen sisäänkirjautuminen on toteutettu.
+Sekvenssikaavio kuvaa, mitä sovelluksessa tapahtuu kun käyttäjä kirjautuu sisään.
 
 <img src="https://raw.githubusercontent.com/anL1/otm-harjoitustyo/master/dokumentaatio/images/LogIn.png" >
 
+### Kurssin lisääminen
+Kun käyttäjä on täyttänyt sovelluksen päänäkymässä tekstikentät asianmukaisesti ja klikkaa _Add course_-nappia, etenee ohjelman toiminta seuraavasti:
+
+<img src="https://raw.githubusercontent.com/anL1/otm-harjoitustyo/master/dokumentaatio/images/Add%20Course.png" >
+
+Nappiin liitetty tapahtumankäsittelijä kutsuu luokan StudyService metodia addCourse, joka lisää kurssin tietokantaan. Tämän jälkeen tapahtumankäsittelijä kutsuu käyttöliittymän kontrollerin metodia setCourseList, joka renderöi käyttöliittymän listaukseen päivitetyn kurssilistan.
 ## Ohjelmaan jääneet heikkoudet
