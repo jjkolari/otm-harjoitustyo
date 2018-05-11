@@ -1,6 +1,6 @@
 # Käyttöohje
 
-Lataa sovelluksen [suoritettava .jar-tiedosto](https://github.com/anL1/otm-harjoitustyo/releases/tag/v2.0_viikko6)
+Lataa sovelluksen [suoritettava .jar-tiedosto](https://github.com/anL1/otm-harjoitustyo/releases/tag/v.3.0)
 
 ## Käynnistys
 
