@@ -6,7 +6,7 @@ Lataa sovelluksen [suoritettava .jar-tiedosto](https://github.com/anL1/otm-harjo
 
 Sovellus käynnistyy komennolla
 ```
-java -jar Opintoapp-3.0.jar
+java -jar OpintoApp-3.0.jar
 ```
 
 Ensimmäisen käynnistyksen yhteydessä OpintoApp luo käynnistyshakemistoon tiedoston _OpintoApp.db_. Kaikki suorituksen aikaiset tiedot tallennetaan tähän tietokantaan, älä siis poista tai siirrä sitä toiseen hakemistoon.
