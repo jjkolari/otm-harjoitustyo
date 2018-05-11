@@ -33,15 +33,14 @@ public class UserDao {
             } catch (Exception e) {
             }
         };
-        
+
         this.db.deleteUpdateOrInsert("INSERT INTO User (username, name, password)"
                 + "VALUES(?, ?, ?)", statement);
     }
 
     /**
      * Metodi etsii tietokannasta käyttäjän joka vastaa parametrina saatua
-     * käyttäjänimeä ja salasanaa, salasanavertailu BCryptiä käyttäen
-     * suoritetaan tässä metodissa.
+     * käyttäjänimeä ja salasanaa.
      *
      * @param username Käyttäjänimi
      * @param password Salasana cleantext-muodossa.
@@ -49,34 +48,49 @@ public class UserDao {
      * @throws SQLException
      */
     public User findOne(String username, String password) throws SQLException {
-        Connection conn = db.getConnection();
-        PreparedStatement stmt = conn.prepareStatement("Select * From User Where "
-                + "username = ? ");
-        stmt.setString(1, username);
+        try (Connection conn = db.getConnection();
+                PreparedStatement stmt = conn.prepareStatement("Select * From User Where "
+                        + "username = ? ");) {
+            stmt.setString(1, username);
 
-        ResultSet rs = stmt.executeQuery();
-        boolean hasOne = rs.next();
-        if (!hasOne) {
-            return null;
+            ResultSet rs = stmt.executeQuery();
+            boolean pwCorrectAndUserReturned = checkResultSetAndPassword(rs, password);
+            if (!pwCorrectAndUserReturned) {
+                return null;
+            }
+
+            String usrname = rs.getString("username");
+            String name = rs.getString("name");
+            String pswd = rs.getString("password");
+            User user = new User(usrname, name, pswd);
+
+            rs.close();
+            return user;
         }
+    }
 
+    /**
+     * Apumetodi, joka tarkastaa että tietokannasta palautuu käyttäjänimeä
+     * vastaava käyttäjä ja salasana on oikein, salasanavertailu BCryptiä
+     * käyttäen suoritetaan tässä metodissa.
+     *
+     * @param rs Tietokantakyselyn resultset
+     * @param password salasana
+     * @return
+     * @throws SQLException
+     */
+    public boolean checkResultSetAndPassword(ResultSet rs, String password) throws SQLException {
+        boolean userFound = rs.next();
+        if (!userFound) {
+            return false;
+        }
         boolean pwMatches = BCrypt.checkpw(password, rs.getString("password"));
         if (!pwMatches) {
             rs.close();
-            stmt.close();
-            conn.close();
-            return null;
+            return false;
         }
 
-        String usrname = rs.getString("username");
-        String name = rs.getString("name");
-        String pswd = rs.getString("password");
-        User user = new User(usrname, name, pswd);
-
-        rs.close();
-        stmt.close();
-        conn.close();
-        return user;
+        return true;
     }
 
 }

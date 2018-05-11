@@ -48,19 +48,19 @@ public class Database {
 
     /**
      * Metodi ottaa yhteyden tietokantaan SQL-lauseiden suorittamista varten.
-     * 
+     *
      * @return Connection
-     * @throws SQLException 
+     * @throws SQLException
      */
     public Connection getConnection() throws SQLException {
         return DriverManager.getConnection(databaseAdress);
     }
-    
-    public void deleteUpdateOrInsert(String sql, Consumer<PreparedStatement> consumer) throws SQLException{
+
+    public void deleteUpdateOrInsert(String sql, Consumer<PreparedStatement> consumer) throws SQLException {
         Connection conn = this.getConnection();
         PreparedStatement stmt = conn.prepareStatement(sql);
         consumer.accept(stmt);
-        
+
         stmt.executeUpdate();
         stmt.close();
         conn.close();
